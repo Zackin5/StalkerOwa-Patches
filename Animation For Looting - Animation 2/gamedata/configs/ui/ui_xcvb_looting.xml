@@ -1,0 +1,12 @@
+<w>
+
+    <poarch_cringe_seq  x="200" y="130" width="96" height="31" alignment="c" scale="1" scale_min="1" scale_max="1" stretch = "1">
+		<texture>ui\loot_searching\icon_looting_01b.dds</texture>
+	</poarch_cringe_seq>
+
+
+	<looting_text x="155" y="79" width="80" height="80" stretch="1">
+		<text x="0" y="0"  align="l" complex_mode="0" font="graffiti22" r="255" g="255" b="255" a="255"></text>
+	</looting_text>
+
+</w>
