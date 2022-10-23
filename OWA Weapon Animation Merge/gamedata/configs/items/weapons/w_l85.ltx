@@ -1,0 +1,286 @@
+; ��������� �������� (�������) Enfield L85A2
+;-(TrickSR)-----------------------------------------
+; ������ 							5.56x45 ��
+; ����� ������ 						518 ��
+; �������							30
+; ��� ��� ��������					4.13 (� �������� SUSAT L9 A1 Tritium-illuminated telescopic sight)
+; ���������� ������					�4
+; ������������ ��������� ��������	4500 �
+; ����������� ��������� ��������	500 �
+; ���������� ���������				900 �
+; ������� �������� ����				940 �/�
+; ���� ��������						610-775 �/�
+;---------------------------------------------------
+
+[wpn_l85]:weapon_probability,default_weapon_params,wpn_l85_sounds
+GroupControlSection					= spawn_group
+$spawn 							= "weapons\l85"			; option for Level Editor
+$npc							= on				; option for Level Editor
+$prefetch						= 8
+scheduled						= off				; option for ALife Simulator
+cform							= skeleton
+class							= WP_AK74
+description						= str_wpn_l85_descr
+
+ef_main_weapon_type					= 2
+ef_weapon_type						= 7
+
+kind                                     = w_rifle
+repair_type                              = weapon
+weapon_class                             = assault_rifle
+tier									 = 3
+
+;-------------------------------------------------------------------------------
+inv_name						= str_wpn_l85
+inv_name_short 						= str_wpn_l85
+
+inv_grid_width     = 5
+inv_grid_height    = 2
+inv_grid_x         = 4
+inv_grid_y         = 20
+
+upgr_icon_x			= 303
+upgr_icon_y			= 515
+upgr_icon_width		= 294
+upgr_icon_height   	= 110
+
+kill_msg_x 						= 84
+kill_msg_y 						= 28
+kill_msg_width 						= 73
+kill_msg_height						= 30
+
+;-------------------------------------------------------------------------------
+cost							= 6000
+inv_weight 						= 4.13
+hud							= wpn_l85_hud
+visual							= dynamics\weapons\wpn_l85\wpn_l85.ogf
+
+upgrades                                 = up_gr_firstab_l85, up_gr_seconab_l85, up_gr_thirdab_l85, up_gr_fourtab_l85, up_gr_fourtcd_l85, up_gr_fourtef_l85, up_gr_fifthab_l85, up_gr_fifthcd_l85
+installed_upgrades                       =
+upgrade_scheme                           = upgrade_scheme_l85
+
+ph_mass								= 5
+
+;-------------------------------------------------------------------------------
+ammo_class						= ammo_5.56x45_ss190, ammo_5.56x45_ap
+
+startup_ammo						= 90
+ammo_current						= 180
+ammo_elapsed						= 30					; obsolete
+ammo_limit						= 210
+ammo_mag_size						= 30					; clip (magazine) size
+
+fire_modes						= 1, 3, -1
+
+grenade_class						= ammo_m209
+
+grenade_vel 						= 76
+launch_speed						= 76
+hand_dependence						= 1
+single_handed						= 0
+
+;-TTX---------------------------------------------------------------------------
+hit_power               = 0.35, 0.35, 0.35, 0.35
+hit_impulse             = 100
+hit_type					= fire_wound
+fire_distance					= 4500
+bullet_speed					= 940					; ��������� �������� ����
+rpm						= 610
+rpm_empty_click					= 200
+
+use_aim_bullet					= true					; �������������� �� ������ ������ ����
+time_to_aim					= 3.0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.006
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.077
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.00065
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.00075
+;---DOF-------------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof					= 0.0, 0.5, 5, 2
+
+;--���������----------------------------------------------------------------------------
+;������� ���������
+fire_dispersion_base    = 0.3    ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor = 1.4f
+crosshair_inertion		= 6.20
+
+;������
+cam_return				= 0
+cam_relax_speed         = 5      ;�������� �������� � �������� ���������
+cam_relax_speed_ai      = 360
+cam_dispersion          = 0.6      ;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc      = 0.3    ;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac     = 1.0    ;����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle           = 50.0         ;������������ ���� ������
+cam_max_angle_horz      = 50.0      ;(degree) maximum shot horizontal degree
+cam_step_angle_horz     = 2.0    ;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 2.0
+PDM_disp_accel_factor 		= 2.0
+PDM_disp_crouch	 			= 1.0
+PDM_disp_crouch_no_acc 		= 1.0
+
+zoom_cam_relax_speed         = 5     ; scope & ironsight
+zoom_cam_relax_speed_ai      = 360
+zoom_cam_dispersion          = 0.4
+zoom_cam_dispersion_inc      = 0.2
+zoom_cam_dispersion_frac     = 1.0
+zoom_cam_max_angle           = 50.0
+zoom_cam_max_angle_horz      = 50.0
+zoom_cam_step_angle_horz     = 1.8
+
+fire_dispersion_condition_factor = 11        ;���������� ��������� � ��������� ��� ������������ ������
+
+;- for AI ----------------------------------------------------------------------
+min_radius					= 30
+max_radius					= 90
+
+holder_range_modifier				= 1.25					; �� ������� ��� ������������� eye_range
+holder_fov_modifier				= 1.00					; �� ������� ��� ������������� eye_fov
+
+hit_probability_gd_novice			= 0.55
+hit_probability_gd_stalker			= 0.65
+hit_probability_gd_veteran			= 0.75
+hit_probability_gd_master			= 0.85
+
+;-------------------------------------------------------------------------------
+slot						= 2						; // secondary
+animation_slot					= 2						; type of the animation that will be used
+
+position					= -0.026, -0.135, 0.0
+orientation					= 0, 0, 0
+
+fire_point					= 0.0,0.186,0.435
+fire_point2					= 0.0, 0.106, 0.468
+
+flame_particles					= weapons\generic_weapon05
+smoke_particles					= weapons\generic_shoot_00
+grenade_flame_particles				= weapons\generic_weapon01
+
+shell_point					= -0.020000,0.167000,0.082000
+shell_dir					= 0.0, 0.0, 0.4
+shell_particles					= weapons\556x45
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;�� ����� (��������)
+strap_position 					= -0.15,-0.36,0.25		; position (offset) and orientation of the weapon when it is strapped
+strap_orientation				= -10,-5,10				; (3rd person view in degrees)
+strap_bone0					= bip01_spine2
+strap_bone1					= bip01_spine1
+
+light_disabled					= false
+light_color					= 0.6,0.5,0.3
+light_range					= 5
+light_var_color					= 0.05
+light_var_range					= 0.5
+light_time					= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status					= 1
+silencer_status					= 0
+grenade_launcher_status				= 0
+
+zoom_enabled					= true					; (on,off)zoom mode (right mouse button)
+zoom_rotate_time				= 0.25
+scope_zoom_factor				= 60					; fov for zoom mode (x4)
+scope_dynamic_zoom				= off
+
+scope_texture					= wpn_owa_crosshair_l85
+
+scope_name 					= acog
+scope_x 					= 60
+scope_y 					= -2
+
+grenade_launcher_name 				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x          = 122		; offset in inventory icon
+grenade_launcher_y          = 36
+
+silencer_name					= wpn_addon_silencer
+silencer_x                  = 224		; offset in inventory icon
+silencer_y                  = 6
+
+;silencer_hit_power 				= 0.45, 0.45, 0.45, 0.45
+;silencer_hit_impulse	 			= 10
+silencer_fire_distance 				= 850
+silencer_bullet_speed	 			= 290
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time				= 0.2
+
+[wpn_l85_hud]:hud_base
+zoom_hide_crosshair 		= true 		
+attach_place_idx		= 0
+item_visual                              = anomaly_weapons\wpn_l85\wpn_l85_hud.ogf
+
+hands_position                           = 0.015, 0.01, -0.09
+hands_position_16x9                      = 0.015, 0.01, -0.09
+hands_orientation                        = 0, -1.5, 0
+hands_orientation_16x9                   = 0, -1.5, 0
+
+item_position			= 0,0,0
+item_orientation		= 0,0,0
+
+shell_bone                               = gilza
+shell_dir                                = 0, 1, 0
+shell_point                              = 0, 0, 0
+
+fire_point			= 0,0,0
+fire_bone      	      		= muzzle
+fire_point2			= 0,0,0
+fire_bone2                               = wpn_body
+
+anm_hide                                 = l85_b_holster, idle
+anm_idle                                 = l85_b_idle, idle, 0.9
+anm_idle_aim                             = l85_b_loop, idle
+anm_idle_aim_moving                      = l85_b_loop, idle
+anm_idle_aim_moving_crouch               = l85_b_loop, idle
+anm_idle_moving                          = l85_b_walk, idle
+anm_idle_moving_crouch                   = l85_b_walk, idle
+anm_idle_sprint                          = l85_b_sprint, idle, 1.2
+anm_reload                               = l85_b_reload, reload
+anm_reload_empty                         = l85_b_reload_empty, reload_empty
+anm_reload_misfire                       = l85_b_unjam, unjam
+anm_switch_mode                  		 = l85_b_firemode, idle
+anm_shots                                = l85_b_shoot, shoot
+anm_show                                 = l85_b_draw, idle
+
+
+
+aim_hud_offset_pos                       = -0.0979, 0.0063, -0.01
+aim_hud_offset_pos_16x9                  = -0.0979, 0.0063, -0.01
+aim_hud_offset_rot                       = -0.0257, 0.0011, -0.008
+aim_hud_offset_rot_16x9                  = -0.0257, 0.0011, -0.008
+
+aim_hud_offset_alt_pos                   = -0.0978, -0.0118, 0.04
+aim_hud_offset_alt_pos_16x9              = -0.0978, -0.0118, 0.04
+aim_hud_offset_alt_rot                   = -0.017,0,-0.008
+aim_hud_offset_alt_rot_16x9              = -0.017,0,-0.008
+
+lowered_hud_offset_pos					 = 0.06, -0.04, -0.02
+lowered_hud_offset_pos_16x9				 = 0.06, -0.04, -0.02
+lowered_hud_offset_rot					 = -0.1, -0.63, 0.4
+lowered_hud_offset_rot_16x9				 = -0.1, -0.63, 0.4
+
+lean_hud_offset_pos	= 0,0,0
+lean_hud_offset_rot	= 0,0,0
+
+;-----------------------------------------------------------------------------
+; ����������
+;-----------------------------------------------------------------------------

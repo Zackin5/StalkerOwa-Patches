@@ -1,0 +1,282 @@
+; �������� �������� - �� 
+;-(TrickSR)-----------------------------------------
+; ������ 							9�18 ��
+; ����� ������ 						93.5 ��
+; �������							8
+; ��� ��� ��������					0.73
+; ������������ ��������� ��������	500 �
+; ����������� ��������� ��������	25 �
+; ���������� ���������				---
+; ������� �������� ����				315 �/�
+; ���� ��������						30 �/�
+;---------------------------------------------------
+
+[wpn_pm]:weapon_probability,default_weapon_params,wpn_pm_sounds
+GroupControlSection					= spawn_group
+$spawn 								= "weapons\pm"			; option for Level Editor
+$npc			 					= on					; option for Level Editor
+$prefetch 							= 8
+scheduled 							= off 					; option for ALife Simulator
+cform 								= skeleton
+class 								= WP_PM
+description							= str_wpn_pm_descr
+
+ef_main_weapon_type					= 0
+ef_weapon_type						= 5
+
+kind                                     = w_pistol
+repair_type                              = weapon
+tier									 = 1
+
+;-------------------------------------------------------------------------------
+inv_name							= str_wpn_pm
+inv_name_short						= str_wpn_pm
+
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 16
+inv_grid_y         = 23
+
+upgr_icon_x			= 830
+upgr_icon_y			= 8
+upgr_icon_width		= 133
+upgr_icon_height   	= 118
+
+kill_msg_x							= 227
+kill_msg_y							= 82
+kill_msg_width						= 27
+kill_msg_height						= 23
+
+;-------------------------------------------------------------------------------
+cost						= 400
+inv_weight					= 0.73
+hud 						= wpn_pm_hud
+visual 						= dynamics\weapons\wpn_pm\wpn_pm.ogf
+
+        upgrades                    = up_gr_firstab_pm, up_gr_seconab_pm, up_gr_thirdab_pm, up_gr_fourtab_pm, up_gr_fifthab_pm, up_gr_fifthcd_pm
+        installed_upgrades          =
+        upgrade_scheme              = upgrade_scheme_pm
+
+ph_mass			 			= 1
+
+;-------------------------------------------------------------------------------
+ammo_class		 				= ammo_9x18_fmj, ammo_9x18_pmm
+
+startup_ammo						= 90
+ammo_current						= 48
+ammo_elapsed						= 8
+ammo_limit							= 56
+ammo_mag_size						= 8
+
+hand_dependence		 				= 1
+single_handed						= 1
+
+fire_modes						= 1
+;-TTX---------------------------------------------------------------------------
+hit_power           		= 0.32, 0.32, 0.32, 0.32
+hit_impulse	 		 		= 75
+hit_type 							= fire_wound
+fire_distance						= 500
+bullet_speed					 	= 315
+rpm									= 200
+rpm_empty_click 	 				= 120
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 1.0
+
+misfire_probability					= 0.005					
+; ����������� ������ ��� ������������ ������ !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.007
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.07
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.0015
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.0015
+;-DOF---------------------------------------------------------------------------
+zoom_dof							= -1000, 1.0, 1000
+reload_dof							= 0.0, 0.5, 5, 1.7
+
+;-----���������-------------------------------------------------------------------------
+;������� ���������
+fire_dispersion_base	= 0.25 ;0.19 			;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor = 1.0
+crosshair_inertion		= 3
+
+;������
+cam_return				= 0
+cam_relax_speed         = 8				;�������� �������� � �������� ���������
+cam_relax_speed_ai      = 360
+cam_dispersion          = 0.75				;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc		= 0.75				;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac		= 1.0				;����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle			= 5.0			;������������ ���� ������
+cam_max_angle_horz		= 5.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz		= 1.0				;(degree) size of step camera moved in horizontal position while shooting
+
+fire_dispersion_condition_factor = 11		;���������� ��������� � ��������� ��� ������������ ������
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 1.1
+PDM_disp_accel_factor 		= 1.1
+PDM_disp_crouch	 			= 1
+PDM_disp_crouch_no_acc 		= 1
+
+;- for AI ----------------------------------------------------------------------
+min_radius 							= 0
+max_radius 							= 30
+
+holder_range_modifier				= 1.00					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.00					; �� ������� ��� ������������� eye_fov
+
+;-------------------------------------------------------------------------------
+slot 			 					= 1
+animation_slot						= 1						; type of the animation that will be used
+
+position 							= -0.021, -0.085, 0.0
+orientation 						= 0, 0, 0
+
+fire_point 							= 0.0, 0.133, 0.161
+
+flame_particles					 	= weapons\generic_weapon03
+smoke_particles					 	= weapons\generic_shoot_00
+
+shell_point		 					= 0.0, 0.133, 0.047
+shell_dir		 					= 0.0, 0.0, 0.4
+shell_particles	 					= weapons\9x18
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;strap_position 					= -0.1,-0.45,0.2		; position (offset) and orientation of the weapon when it is strapped
+;strap_orientation 					= 1.57,0,0				; (3rd person view)
+;strap_bone0						= bip01_spine2
+;strap_bone1						= bip01_spine1
+
+light_color		 					= 0.6,0.5,0.3
+light_range		 					= 3.0
+light_var_color		 				= 0.05
+light_var_range		 				= 0.5
+light_time 		 					= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 0
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor = 0
+
+silencer_name 						= wpn_addon_silencer	; section name for the attachable silencer
+silencer_x                  = 38		; offset in inventory icon
+silencer_y                  = -18
+
+;silencer_hit_power 				= 0.45, 0.45, 0.45, 0.45
+;silencer_hit_impulse	 			= 10
+silencer_fire_distance 				= 430
+silencer_bullet_speed	 			= 290
+
+;silencer_flame_particles 			= weapons\generic_weapon01
+silencer_smoke_particles 			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time 				= 0.2
+
+[wpn_pm_hud]:hud_base
+zoom_hide_crosshair			= true
+
+hands_position              = 0.082, -0.058, -0.09
+hands_position_16x9         = 0.082, -0.058, -0.09
+hands_orientation           = 0.7, -0.5, 1
+hands_orientation_16x9      = 0.7, -0.5, 1
+		
+lowered_hud_offset_pos			= 0.04, -0.23, -0.06
+lowered_hud_offset_pos_16x9		= 0.04, -0.23, -0.06
+lowered_hud_offset_rot			= -0.7, 0, -0.05
+lowered_hud_offset_rot_16x9		= -0.7, 0, -0.05
+
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+
+item_visual                 = anomaly_weapons\wpn_pm\wpn_pm_hud.ogf
+attach_place_idx				= 0
+
+shell_bone                  = gilza
+shell_point                 = 0, 0, 0
+
+fire_bone                   = muzzle
+fire_point                  = 0, -0.005, 0
+
+anm_bore                                 = blnd_mak_bore_arms
+anm_bore_empty                           = blnd_mak_bore_arms, idle_empty
+anm_hide                                 = blnd_mak_holster_arms
+anm_hide_empty                           = blnd_mak_holster_arms, idle_empty
+anm_idle                                 = blnd_mak_idle_arms, idle, 0.75
+anm_idle_aim                             = blnd_mak_idleaim_arms
+anm_idle_aim_empty                       = blnd_mak_idleaim_arms, idle_empty
+anm_idle_aim_moving                      = blnd_mak_idleaim_arms
+anm_idle_aim_moving_crouch               = blnd_mak_idleaim_arms
+anm_idle_aim_moving_crouch_empty         = blnd_mak_idleaim_arms, idle_empty
+anm_idle_aim_moving_empty                = blnd_mak_idleaim_arms, idle_empty
+anm_idle_empty                           = blnd_mak_idle_arms, idle_empty
+anm_idle_moving                          = blnd_mak_walk_arms, idle, 0.85
+anm_idle_moving_crouch                   = blnd_mak_walk_arms, idle, 0.95
+anm_idle_moving_crouch_empty             = blnd_mak_walk_arms, idle_empty, 0.95
+anm_idle_moving_empty                    = blnd_mak_walk_arms, idle_empty, 0.85
+anm_idle_sprint                          = blnd_mak_sprint_arms
+anm_idle_sprint_empty                    = blnd_mak_sprint_arms, idle_empty
+anm_reload                               = blnd_mak_reload_arms, reload, 1.15
+anm_reload_empty                         = blnd_mak_reloadempty_arms, reload_empty, 1.15
+anm_shot_l                               = blnd_mak_shoot1_arms, shoot_last
+anm_shots                                = blnd_mak_shoot3_arms, shoot
+anm_show                                 = blnd_mak_draw_arms
+anm_show_empty                           = blnd_mak_draw_arms, idle_empty
+anm_reload_misfire                       = blnd_mak_unjam_arms, unjam, 1.05
+
+
+aim_hud_offset_pos          = -0.0818, 0.0568, -0.03
+aim_hud_offset_pos_16x9     = -0.0818, 0.0568, -0.03
+aim_hud_offset_rot          = -0.0092, 0.012, 0.015
+aim_hud_offset_rot_16x9     = -0.0092, 0.012, 0.015
+
+aim_hud_offset_alt_pos          = -0.005, 0.072, 0.07
+aim_hud_offset_alt_pos_16x9     = -0.005, 0.072, 0.07
+aim_hud_offset_alt_rot          = 0.01, -0.02, 0.7
+aim_hud_offset_alt_rot_16x9     = 0.01, -0.02, 0.7
+
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos         = 0.042, -0.05, -0.03
+lean_hud_offset_rot         = 0, 0, 0.0
+
+;-------------------------------------------------------------------------------
+; ����������
+;-------------------------------------------------------------------------------
+[wpn_pm_actor]:wpn_pm
+$spawn 								= "weapons\pm_actor"	; option for Level Editor
+inv_name							= str_wpn_pm_actor
+description							= str_wpn_pm_actor_descr
+
+cost								= 500
+
+upgrades							= up_gr_firstab_pm, up_gr_seconab_pm, up_gr_thirdab_pm, up_gr_fourtab_pm, up_gr_fifthab_pm, up_gr_fifthcd_pm
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_pm
+
+fire_dispersion_base				= 0.022					; ���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+
+condition_shot_dec 					= 0.0002
+condition_queue_shot_dec			= 0.0002
+
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 16
+inv_grid_y         = 23

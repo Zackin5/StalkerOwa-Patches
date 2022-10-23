@@ -1,0 +1,724 @@
+[ammo_base]:default_weapon_params
+class                                              = AMMO
+cform                                              = skeleton
+explosive                                          = false
+k_speed                                            = 1
+tracer                                             = on
+tracer_color_ID                                    = 0
+tier											   = 1
+kind			       				 	 			= w_ammo
+
+[ammo_knife]:ammo_base
+$prefetch                                          = 64
+box_size                                           = 1
+buck_shot                                          = 1
+cost                                               = 1
+impair                                             = 1
+fake_ammo								 = true
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 15
+inv_grid_y         = 14
+inv_name                                           = st_none
+inv_name_short                                     = st_none
+inv_weight                                         = 0
+k_air_resistance                                   = 1
+k_ap                                               = 1
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1.5
+k_impulse                                          = 1
+k_pierce                                           = 999
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x18_fmj.ogf
+wm_size                                            = 0.05
+
+[ammo_binoc]:ammo_base
+GroupControlSection	= spawn_group
+discovery_dependency 	=
+$spawn			= "weapons\ammo\ammo_9x19_fmj" ; option for Level Editor
+class			= AMMO_S
+cform                  = skeleton
+visual                 = dynamics\weapons\wpn_ammo\ammo_9x19_fmj.ogf
+description		= none
+$prefetch 		= 64
+fake_ammo								 = true
+
+cost			= 0
+
+box_size		= 0 ;50
+
+inv_name		= none
+inv_name_short	= none
+inv_weight		= 0
+
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 21
+inv_grid_y         = 18
+
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_ap			= 1
+impair			= 1.5 ; 1
+buck_shot		= 1
+tracer			= off
+wm_size         	= 0.001
+k_air_resistance 	= 1
+
+
+[ammo_12x70_buck]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_12x70_buck"
+box_size                                           = 10
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 250
+description                                        = ammo-12x70-buck_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 2
+inv_grid_y         = 4
+inv_name                                           = ammo-12x70-buck
+inv_name_short                                     = ammo-12x70-buck_s
+inv_weight                                         = 0.35
+
+k_dist			= 0.5
+k_disp			= 15
+k_hit			= 0.3
+k_impulse		= 0.5
+k_pierce		= 0.0
+k_ap			= 0.0
+impair			= 1
+buck_shot		= 15
+
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_12x70_buck.ogf
+wm_size                                            = 0.05
+
+tier                                     = 2
+
+[ammo_12x76_zhekan]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_12x76_zhekan"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 200
+description                                        = ammo-12x76-zhekan_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 2
+inv_grid_y         = 5
+inv_name                                           = ammo-12x76-zhekan
+inv_name_short                                     = ammo-12x76-zhekan_s
+inv_weight                                         = 0.4
+k_air_resistance                                   = 1.5
+k_ap                                               = 0.48
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 3
+k_impulse                                          = 2.0
+k_pierce                                           = 0.48
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_12x76_zhekan.ogf
+wm_size                                            = 0.16
+
+tier                                     = 2
+
+[ammo_12x76_zhekan_heli]:ammo_12x76_zhekan
+$spawn                                             = "weapons\ammo\ammo_12x76_zhekan_heli"
+explosive                                          = on
+k_hit                                              = 0.8
+k_ap                                               = 0.8
+
+[ammo_9x18_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x18_fmj"
+box_size                                           = 20
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost			= 200
+description                                        = ammo-9x18-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 0
+inv_grid_y         = 4
+inv_name                                           = ammo-9x18-fmj
+inv_name_short                                     = ammo-9x18-fmj_s
+inv_weight                                         = 0.15
+k_air_resistance                                   = 2.2
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.25
+k_ap			= 0.25
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x18_fmj.ogf
+wm_size                                            = 0.0925
+
+[ammo_9x18_pmm]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x18_pmm"
+box_size                                           = 20
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 300
+description                                        = ammo-9x18-pmm_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 0
+inv_grid_y         = 5
+inv_name                                           = ammo-9x18-pmm
+inv_name_short                                     = ammo-9x18-pmm_s
+inv_weight                                         = 0.15
+k_air_resistance                                   = 1.90
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1.5
+k_impulse		= 1
+k_pierce		= 0.35
+k_ap			= 0.35
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x18_pmm.ogf
+wm_size                                            = 0.05
+
+[ammo_9x19_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x19_fmj"
+box_size                                           = 20
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost			= 250
+description                                        = ammo-9x19-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 1
+inv_grid_y         = 4
+inv_name                                           = ammo-9x19-fmj
+inv_name_short                                     = ammo-9x19-fmj_s
+inv_weight                                         = 0.2
+k_air_resistance                                   = 1.90
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.25
+k_ap			= 0.25
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x19_fmj.ogf
+wm_size                                            = 0.0903
+
+[ammo_9x19_pbp]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x19_pbp"
+box_size                                           = 20
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 300
+description                                        = ammo-9x19-pbp_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1.80
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 1
+inv_grid_y         = 5
+inv_name                                           = ammo-9x19-pbp
+inv_name_short                                     = ammo-9x19-pbp_s
+inv_weight                                         = 0.2
+k_air_resistance                                   = 1.82
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1.5
+k_impulse		= 1
+k_pierce		= 0.35
+k_ap			= 0.35
+
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x19_pbp.ogf
+wm_size                                            = 0.0903
+
+[ammo_11.43x23_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_11.43x23_fmj"
+box_size                                           = 20
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 500
+description                                        = ammo-11.43x23-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 6
+inv_grid_y         = 4
+inv_name                                           = ammo-11.43x23-fmj
+inv_name_short                                     = ammo-11.43x23-fmj_s
+inv_weight                                         = 0.25
+k_air_resistance                                   = 1.6
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.4
+k_ap			= 0.5
+visual                                             = dynamics\weapons\wpn_ammo\ammo_1143x23_fmj.ogf
+wm_size                                            = 0.115
+
+tier											   = 2
+
+[ammo_11.43x23_hydro]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_11.43x23_hydro"
+box_size                                           = 20
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 600
+description                                        = ammo-11.43x23-hydro_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 6
+inv_grid_y         = 5
+inv_name                                           = ammo-11.43x23-hydro
+inv_name_short                                     = ammo-11.43x23-hydro_s
+inv_weight                                         = 0.25
+k_air_resistance                                   = 2.4
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1.25
+k_impulse		= 1
+k_pierce		= 0.5
+k_ap			= 0.8
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_1143x23_Hydro.ogf
+wm_size                                            = 0.21082
+
+tier                                     = 2
+
+
+[ammo_5.45x39_fmj]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.45x39_fmj"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 650
+description                                        = ammo-5.45x39-fmj_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 4
+inv_grid_y         = 4
+inv_name                                           = ammo-5.45x39-fmj
+inv_name_short                                     = ammo-5.45x39-fmj_s
+inv_weight                                         = 0.3
+k_air_resistance                                   = 1.6
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.45
+k_ap			= 0.45
+visual                                             = dynamics\weapons\wpn_ammo\ammo_545x39_fmj.ogf
+wm_size                                            = 0.0562
+
+tier                                     = 2
+
+[ammo_5.45x39_ap]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.45x39_ap"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 1400
+description                                        = ammo-5.45x39-ap_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 4
+inv_grid_y         = 5
+inv_name                                           = ammo-5.45x39-ap
+inv_name_short                                     = ammo-5.45x39-ap_s
+inv_weight                                         = 0.3
+k_air_resistance                                   = 1.58
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.75
+k_ap			= 0.75
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_545x39_ap.ogf
+wm_size                                            = 0.0562
+
+tier                                     = 3
+
+
+[ammo_5.56x45_ss190]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.56x45_ss190"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 700
+description                                        = ammo-5.56x45-ss190_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 8
+inv_grid_y         = 4
+inv_name                                           = ammo-5.56x45-ss190
+inv_name_short                                     = ammo-5.56x45-ss190_s
+inv_weight                                         = 0.3
+k_air_resistance                                   = 1.5
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.5
+k_ap			= 0.5
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_556x45_ss190.ogf
+wm_size                                            = 0.0569
+
+tier                                     = 2
+
+[ammo_5.56x45_ap]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_5.56x45_ap"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 1400
+description                                        = ammo-5.56x45-ap_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 8
+inv_grid_y         = 5
+inv_name                                           = ammo-5.56x45-ap
+inv_name_short                                     = ammo-5.56x45-ap_s
+inv_weight                                         = 0.3
+k_air_resistance                                   = 1.37
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.8
+k_ap			= 0.8
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_556x45_ap.ogf
+wm_size                                            = 0.0569
+
+tier                                     = 3
+
+[ammo_9x39_pab9]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x39_pab9"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 750
+description                                        = ammo-9x39-pab9_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1.80
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 10
+inv_grid_y         = 4
+inv_name                                           = ammo-9x39-pab9
+inv_name_short                                     = ammo-9x39-pab9_s
+inv_weight                                         = 0.45
+k_air_resistance                                   = 1.37
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.7
+k_ap			= 0.7
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x39_pab9.ogf
+wm_size                                            = 0.0925
+
+tier                                     = 3
+
+[ammo_9x39_ap]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_9x39_ap"
+box_size                                           = 30
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 1500
+description                                        = ammo-9x39-ap_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 10
+inv_grid_y         = 5
+inv_name                                           = ammo-9x39-ap
+inv_name_short                                     = ammo-9x39-ap_s
+inv_weight                                         = 0.45
+k_air_resistance                                   = 1.21
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1.2
+k_impulse		= 1
+k_pierce		= 0.8
+k_ap			= 0.8
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_9x39_ap.ogf
+wm_size                                            = 0.0925
+
+tier                                     = 4
+
+
+[ammo_7.62x54_7h1]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_7.62x54_7h1"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 400
+description                                        = ammo-7.62x54-7h1_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 0
+inv_grid_y         = 7
+inv_name                                           = ammo-7.62x54-7h1
+inv_name_short                                     = ammo-7.62x54-7h1
+inv_weight                                         = 0.2
+k_air_resistance                                   = 1.17
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.75
+k_ap			= 0.75
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_762x54_7h1.ogf
+wm_size                                            = 0.079
+
+tier                                     = 4
+
+
+[ammo_gauss]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_gauss"
+box_size                                           = 10
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost                                               = 3000
+description                                        = ammo-gauss_descr
+discovery_dependency                               = 
+explosive                                          = on
+GroupControlSection                                = spawn_group
+impair                                             = 10
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 5
+inv_grid_y         = 6
+inv_name                                           = ammo-gauss
+inv_name_short                                     = ammo-gauss_s
+inv_weight                                         = 0.2
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 25
+k_ap			= 1
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_gauss.ogf
+wm_size                                            = 0.02
+
+tier                                     = 5
+
+
+[ammo_pkm_100]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_pkm_100"
+box_size                                           = 100
+buck_shot                                          = 1
+cform                                              = skeleton
+class                                              = AMMO
+cost											   = 2000
+description                                        = ammo-7.62x54-pkm_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+hud_icon                                           = ui_hud2_res_back
+impair                                             = 1.50
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 0
+inv_grid_y         = 6
+inv_name                                           = ammo-7.62x54-pkm
+inv_name_short                                     = ammo-7.62x54-pkm_s
+inv_weight                                         = 1.5
+k_air_resistance                                   = 1.17
+k_dist			= 1
+k_disp			= 1
+k_hit			= 1
+k_impulse		= 1
+k_pierce		= 0.75
+k_ap			= 0.75
+tracer_color_ID                                    = 0
+visual                                             = dynamics\weapons\wpn_ammo\ammo_pkm.ogf
+wm_size                                            = 0.079
+
+tier                                     = 4
+
+
+[ammo_og-7b]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_og-7b"
+box_size                                           = 1
+buck_shot                                          = 1
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_OG7B
+cost                                               = 300
+description                                        = ammo-og-7b_descr
+discovery_dependency                               = 
+explosive                                          = on
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 3
+inv_grid_height    = 1
+inv_grid_x         = 2
+inv_grid_y         = 6
+inv_name                                           = ammo-og-7b
+inv_name_short                                     = ammo-og-7b_s
+inv_weight                                         = 0.45
+k_ap                                               = 2.00
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 2.00
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_og_7b.ogf
+wm_size                                            = 0.1
+
+[ammo_vog-25]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_vog-25"
+box_size                                           = 1
+buck_shot                                          = 0
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_VOG25
+cost                                               = 300
+description                                        = ammo-vog-25_descr
+discovery_dependency                               = 
+explosive                                          = on
+fake_grenade_name                                  = wpn_fake_missile
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 2
+inv_grid_y         = 7
+inv_name                                           = ammo-vog-25
+inv_name_short                                     = ammo-vog-25_s
+inv_weight                                         = 0.1
+k_ap                                               = 0
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0
+kill_msg_height                                    = 22
+kill_msg_width                                     = 21
+kill_msg_x                                         = 38
+kill_msg_y                                         = 233
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_vog_25.ogf
+wm_size                                            = 0.1
+
+tier                                     = 4
+
+[ammo_m209]:ammo_base
+$prefetch                                          = 64
+$spawn                                             = "weapons\ammo\ammo_m209"
+box_size                                           = 1
+buck_shot                                          = 0
+can_be_unlimited                                   = true
+cform                                              = skeleton
+class                                              = S_M209
+cost                                               = 350
+description                                        = ammo-m209_descr
+discovery_dependency                               = 
+fake_grenade_name                                  = wpn_fake_missile
+GroupControlSection                                = spawn_group
+impair                                             = 1
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 3
+inv_grid_y         = 7
+inv_name                                           = ammo-m209
+inv_name_short                                     = ammo-m209_s
+inv_weight                                         = 0.1
+k_ap                                               = 0
+k_disp                                             = 1
+k_dist                                             = 1
+k_hit                                              = 1
+k_impulse                                          = 1
+k_pierce                                           = 0
+kill_msg_height                                    = 22
+kill_msg_width                                     = 19
+kill_msg_x                                         = 61
+kill_msg_y                                         = 232
+tracer                                             = off
+visual                                             = dynamics\weapons\wpn_ammo\ammo_m209.ogf
+wm_size                                            = 0.1
+
+tier                                     = 4

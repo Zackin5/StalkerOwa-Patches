@@ -1,0 +1,172 @@
+[wpn_wincheastersinr]:identity_immunities,weapon_probability,default_weapon_params,wpn_winchester1300_sounds
+$npc                                     = on
+$prefetch                                = 8
+$spawn                                   = "weapons\winchestersinr"
+GroupControlSection                      = spawn_group
+PDM_disp_accel_factor                    = 2.0
+PDM_disp_base                            = 0.48
+PDM_disp_crouch                          = 1.0
+PDM_disp_crouch_no_acc                   = 1.0
+PDM_disp_vel_factor                      = 2.0
+ammo_class		 						 = ammo_12x70_buck, ammo_12x76_zhekan
+
+ammo_elapsed                             = 8
+ammo_mag_size                            = 8
+animation_slot                           = 9
+
+bullet_speed                             = 320
+cam_dispersion                           = 3.0
+cam_dispersion_frac                      = 0.7
+cam_dispersion_inc                       = 2.0
+cam_max_angle                            = 15.0
+cam_max_angle_horz                       = 15.0
+cam_relax_speed                          = 10
+cam_relax_speed_ai                       = 360
+cam_return                               = 0
+cam_step_angle_horz                      = 3.0
+cform                                    = skeleton
+class                                    = WP_ASHTG
+condition_queue_shot_dec                 = -0.1
+condition_shot_dec                       = -0.1
+control_inertion_factor                  = 1.30
+cost                                     = 3400
+crosshair_inertion                       = 6.85
+description                              = str_wpn_wincheastersinr_descr
+ef_main_weapon_type                      = 1
+ef_weapon_type                           = 9
+fire_dispersion_base                     = 0.3
+fire_dispersion_condition_factor         = 4
+fire_distance                            = 100
+fire_modes                               = 1
+fire_point                               = 0.0, 0.158, 0.647
+fire_point2                              = 0.0, 0.158, 0.647
+flame_particles                          = weapons\generic_weapon05
+grenade_launcher_status                  = 0
+hand_dependence                          = 1
+hit_impulse                              = 120
+hit_power                                = 0.5, 0.5, 0.5, 0.5
+hit_probability_gd_master                = 0.80
+hit_probability_gd_novice                = 0.60
+hit_probability_gd_stalker               = 0.70
+hit_probability_gd_veteran               = 0.75
+hit_type                                 = fire_wound
+holder_fov_modifier                      = 1.0
+holder_range_modifier                    = 1.0
+hud                                      = wpn_winchestersinr_hud
+
+inv_grid_width     = 4
+inv_grid_height    = 1
+inv_grid_x         = 36
+inv_grid_y         = 33
+
+inv_name                                 = str_wpn_wincheastersinr
+inv_name_short                           = str_wpn_wincheastersinr
+inv_weight                               = 3.0
+kill_msg_height                          = 20
+kill_msg_width                           = 75
+kill_msg_x                               = 171
+kill_msg_y                               = 104
+light_color                              = 0.6,0.5,0.3
+light_range                              = 6.0
+light_time                               = 0.2
+light_var_color                          = 0.05
+light_var_range                          = 0.5
+max_radius                               = 50
+min_radius                               = 0
+misfire_end_condition                    = 0
+misfire_end_prob                         = 0
+misfire_probability                      = 0
+misfire_start_condition                  = 0
+misfire_start_prob                       = 0
+orientation                              = 0, -4, 0
+ph_mass                                  = 3
+position                                 = -0.024, -0.097, 0.
+rpm                                      = 85
+rpm_empty_click                          = 200
+scheduled                                = off
+scope_status                             = 0
+scope_zoom_factor                        = 73.3
+shell_particles                          = weapons\generic_shells_shotgun
+shell_point                              = 0.0, 0.180, 0.647
+silencer_status                          = 0
+single_handed                            = 0
+slot                                     = 2
+smoke_particles                          = weapons\generic_shoot_00
+
+snd_shoot				= weapons\sin_shotgun_shoot
+snd_shoot_duplet			= weapons\sin_shotgun_shoot
+
+startup_ammo                             = 10
+strap_bone0                              = bip01_spine2
+strap_bone1                              = bip01_spine1
+strap_position         		= -0.26,-0.10,0.05			; position (offset) and orientation of the weapon when it is strapped
+strap_orientation      		= -15,-9,110				; (3rd person view in degrees)
+tri_state_reload                         = on
+upgr_icon_x			= 8
+upgr_icon_y			= 533
+upgr_icon_width		= 293
+upgr_icon_height   	= 59
+visual                                   = dynamics\weapons\wpn_winchester1300\wpn_m88_sin.ogf
+weapon_class                             = shotgun
+kind                                     = w_shotgun
+repair_type                              = weapon
+weapon_class                             = shotgun
+tier									 = 2
+
+zoom_cam_dispersion                      = 3.0
+zoom_cam_dispersion_frac                 = 0.7
+zoom_cam_dispersion_inc                  = 2.5
+zoom_cam_max_angle                       = 15.0
+zoom_cam_max_angle_horz                  = 15.0
+zoom_cam_relax_speed                     = 10
+zoom_cam_relax_speed_ai                  = 120.75
+zoom_cam_step_angle_horz                 = 3.0
+zoom_dof                                 = 0.5, 1.0, 180
+zoom_enabled                             = true
+
+[wpn_winchestersinr_hud]:hud_base
+
+zoom_hide_crosshair					= true
+
+shell_point		= 0,0,0
+shell_dir       = 0.0, 1.0, 0.0
+shell_bone		= gilza
+
+fire_point		= 0,0,0
+fire_bone      	= muzzle
+fire_point2		= 0,0,0
+fire_bone2		= muzzle
+
+attach_place_idx		= 0
+item_visual                   	= dynamics\weapons\wpn_winchester1300\wpn_m88_sin_hud.ogf
+
+hands_position			= 0,-0.16,0.15
+hands_orientation		= 2,2,0
+hands_position_16x9		= 0,-0.16,0.15
+hands_orientation_16x9	= 2,2,0
+
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+
+anm_show			= mossberg_draw
+anm_hide			= mossberg_holster
+anm_idle			= mossberg_idle
+anm_idle_aim			= mossberg_idle_aim
+anm_idle_moving			= mossberg_idle_moving
+anm_idle_moving_crouch		= mossberg_idle_crouch
+anm_idle_sprint			= mossberg_idle_sprint
+anm_bore			= mossberg_idle_aim
+
+anm_shots			= mossberg_shoot, shoot
+
+anm_open			= mossberg_reload_start, reload_start
+anm_add_cartridge		= mossberg_reload, reload
+anm_close			= mossberg_reload_end, reload_end
+
+anm_reload 			= mossberg_reload
+
+aim_hud_offset_pos = -0.154250,0.089000,-0.116000
+aim_hud_offset_rot = 0.035,0.034800,0.000000
+
+aim_hud_offset_pos_16x9 = -0.154250,0.089000,-0.116000
+aim_hud_offset_rot_16x9 = 0.035,0.034800,0.000000

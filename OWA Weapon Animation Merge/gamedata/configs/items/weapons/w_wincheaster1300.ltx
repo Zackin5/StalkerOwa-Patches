@@ -1,0 +1,308 @@
+; ��������������� ����� Mossberg 590
+;-(TrickSR)-----------------------------------------
+; ������ 							12/76
+; ����� ������ 						540 ��
+; �������							4/7
+; ��� ��� ��������					2.33
+; ������������ ��������� ��������	740 �
+; ����������� ��������� ��������	�� 80 �
+; ���������� ���������				---
+; ������� �������� ����				381 �/�
+; ���� ��������						3 �/�
+;---------------------------------------------------
+
+[wpn_wincheaster1300]:weapon_probability,default_weapon_params,wpn_winchester1300_sounds
+GroupControlSection					= spawn_group
+$spawn 								= "weapons\winchester1300"	; option for Level Editor
+$npc			 					= on						; option for Level Editor
+$prefetch 		 					= 8
+scheduled							= off						; option for ALife Simulator
+cform								= skeleton
+class								= WP_ASHTG
+description							= str_wpn_wincheaster1300_descr
+
+ef_main_weapon_type					= 1
+ef_weapon_type						= 9
+
+kind                                     = w_shotgun
+repair_type                              = weapon
+weapon_class                             = shotgun
+tier									 = 3
+
+;----------------------------------------------------------------------------
+inv_name							= str_wpn_wincheaster1300
+inv_name_short						= str_wpn_wincheaster1300
+
+inv_grid_width     = 5
+inv_grid_height    = 1
+inv_grid_x         = 0
+inv_grid_y         = 27
+
+upgr_icon_x			= 8
+upgr_icon_y			= 533
+upgr_icon_width		= 293
+upgr_icon_height   	= 59
+
+kill_msg_x							= 171
+kill_msg_y							= 104
+kill_msg_width						= 75
+kill_msg_height						= 20
+
+;----------------------------------------------------------------------------
+cost							 	= 3500
+weapon_class					 	= shotgun
+inv_weight							= 2.33
+hud									= wpn_winchester1300_hud
+visual 								= dynamics\weapons\wpn_winchester1300\wpn_winchester1300.ogf
+
+upgrades                                 = up_gr_firstab_mossberg590, up_gr_seconab_mossberg590, up_gr_thirdab_mossberg590, up_gr_fourtab_mossberg590
+installed_upgrades                       =
+upgrade_scheme                           = upgrade_scheme_wincheaster1300
+
+ph_mass			 					= 3
+
+;----------------------------------------------------------------------------
+ammo_class		 					= ammo_12x70_buck, ammo_12x76_zhekan
+
+startup_ammo 						= 10
+ammo_current						= 30
+ammo_elapsed		 				= 0
+ammo_limit							= 35
+ammo_mag_size		 				= 7
+
+fire_modes							= 1
+
+tri_state_reload					= on
+
+hand_dependence 	 				= 1
+single_handed						= 0
+
+;-TTX---------------------------------------------------------------------------
+hit_power        			= 0.6, 0.6, 0.6, 0.6
+hit_impulse      			= 120
+hit_type 					= fire_wound
+fire_distance						= 740
+bullet_speed					 	= 381					; ��������� �������� ����
+rpm									= 55					; 60	= 1 �������
+rpm_empty_click 	 				= 200
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.0015
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.00165
+
+;-DOF---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+;reload_dof							= 0.0, 0.5, 5, 1.7
+	
+;--���������----------------------------------------------------------------------------
+;������� ���������
+fire_dispersion_base		= 0.3  ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor		= 1.3f
+crosshair_inertion			= 6.85
+
+;������
+cam_return				= 0
+cam_relax_speed         = 10	;�������� �������� � �������� ���������
+cam_relax_speed_ai      = 360
+cam_dispersion          = 3.0	;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc		= 2.0	;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac		= 0.7
+cam_max_angle			= 15.0	;������������ ���� ������
+cam_max_angle_horz		= 15.0	;(degree) maximum shot horizontal degree
+cam_step_angle_horz		= 3.0	;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 2.0
+PDM_disp_accel_factor 		= 2.0
+PDM_disp_crouch	 				= 1.0
+PDM_disp_crouch_no_acc 			= 1.0
+
+zoom_cam_relax_speed		= 10     ; scope & ironsight
+zoom_cam_relax_speed_ai		= 120.75
+zoom_cam_dispersion			= 3.0
+zoom_cam_dispersion_inc		= 2.5
+zoom_cam_dispersion_frac	= 0.7
+zoom_cam_max_angle			= 15.0
+zoom_cam_max_angle_horz		= 15.0
+zoom_cam_step_angle_horz	= 3.0
+
+fire_dispersion_condition_factor = 2.5	;���������� ��������� � ��������� ��� ������������ ������
+
+;- for AI ----------------------------------------------------------------------
+min_radius 							= 30
+max_radius 							= 50
+
+holder_range_modifier				= 1.0					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.0					; �� ������� ��� ������������� eye_fov
+
+;-------------------------------------------------------------------------------
+slot 				 				= 2						; // secondary
+animation_slot		 				= 9						; type of the animation that will be used
+
+position 							= -0.024, -0.097, 0.
+orientation							= 0, -4, 0				;�������� ��������������� � ��������
+
+shell_point							= 0.0, 0.180, 0.647
+shell_particles						= weapons\fake_shells
+
+fire_point							= 0.0, 0.158, 0.647
+fire_point2							= 0.0, 0.158, 0.647
+
+flame_particles					 	= weapons\generic_weapon05
+smoke_particles		 				= weapons\generic_shoot_00
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;�� ����� (��������)
+strap_position 						= -0.26,-0.10,0.05			; position (offset) and orientation of the weapon when it is strapped
+strap_orientation					= -15,-9,110				; (3rd person view in degrees)
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+light_color		 					= 0.6,0.5,0.3
+light_range		 					= 6.0
+light_var_color		 				= 0.05
+light_var_range		 				= 0.5
+light_time 		 					= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 0
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+scope_zoom_factor = 0
+
+[wpn_winchester1300_hud]:hud_base
+
+zoom_hide_crosshair					= true
+
+shell_point		= 0,0,0
+shell_dir       = 0.0, 1.0, 0.0
+shell_bone		= gilza
+
+fire_point		= 0,0,0
+fire_bone      	= muzzle
+fire_point2		= 0,0,0
+fire_bone2		= muzzle
+
+attach_place_idx		= 0
+item_visual                   	= dynamics\weapons\wpn_winchester1300\wpn_winchester1300_hud
+
+hands_position			= 0,-0.16,0.15
+hands_orientation		= 2,2,0
+hands_position_16x9		= 0,-0.16,0.15
+hands_orientation_16x9	= 2,2,0
+
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+
+anm_show			= mossberg_draw
+anm_hide			= mossberg_holster
+anm_idle			= mossberg_idle
+anm_idle_aim			= mossberg_idle_aim
+anm_idle_moving			= mossberg_idle_moving
+anm_idle_moving_crouch		= mossberg_idle_crouch
+anm_idle_sprint			= mossberg_idle_sprint
+anm_bore			= mossberg_idle_aim
+
+anm_shots			= mossberg_shoot, shoot
+
+anm_open			= mossberg_reload_start, reload_start
+anm_add_cartridge		= mossberg_reload, reload
+anm_close			= mossberg_reload_end, reload_end
+
+anm_reload 					= mossberg_reload
+
+aim_hud_offset_pos = -0.154250,0.089000,-0.116000
+aim_hud_offset_rot = 0.035,0.034800,0.000000
+
+aim_hud_offset_pos_16x9 = -0.154250,0.089000,-0.116000
+aim_hud_offset_rot_16x9 = 0.035,0.034800,0.000000
+
+;-----------------------------------------------------------------------------
+; "������" ��������
+;-(TrickSR)-----------------------------------------
+; ������ 							12/76
+; ����� ������ 						540 ��
+; �������							4/7
+; ��� ��� ��������					3.0
+; ������������ ��������� ��������	740 �
+; ����������� ��������� ��������	�� 80 �
+; ���������� ���������				---
+; ������� �������� ����				381 �/�
+; ���� ��������						3 �/�
+;-----------------------------------------------------------------------------
+[wpn_wincheaster1300_trapper]:wpn_wincheaster1300
+$spawn 								= "weapons\wpn_wincheaster1300_trapper"		; option for Level Editor
+inv_name							= str_wpn_wincheaster1300_trapper
+description							= str_wpn_wincheaster1300_trapper_descr
+
+cost							 	= 6000
+
+inv_weight							= 3.0
+
+rpm                      	= 105  ;60 = 1 �������
+hit_power        			= 0.85, 0.85, 0.85, 0.85
+hit_impulse      			= 150
+
+fire_dispersion_base				= 0.2					; ���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+
+fire_distance						= 830
+bullet_speed					 	= 450					; ��������� �������� ����
+
+inv_grid_width     = 5
+inv_grid_height    = 1
+inv_grid_x         = 30
+inv_grid_y         = 36
+
+visual 		= dynamics\weapons\wpn_winchester1300\wpn_winchester1300_trapper.ogf
+
+upgr_icon_x						= 604
+upgr_icon_y						= 1469
+upgr_icon_width						= 300
+upgr_icon_height 					= 86
+
+hud = wpn_winchester1300_trapper_hud
+
+[wpn_winchester1300_trapper_hud]:wpn_winchester1300_hud
+
+hands_position			= 0.033,0.05,0.15
+hands_orientation		= 0,-3,0
+
+hands_position_16x9 		= 0.033,0.05,0.15
+hands_orientation_16x9 		= 0,-3,0
+
+item_visual                 	= dynamics\weapons\wpn_winchester1300\wpn_winchester1300_trapper_hud.ogf
+
+anm_show			= m88_draw
+anm_hide			= m88_holster
+anm_idle			= m88_idle
+anm_idle_aim			= m88_idle_aim
+anm_idle_moving			= m88_idle_moving
+anm_idle_moving_crouch		= m88_idle_crounch
+anm_idle_sprint			= m88_idle_sprint
+anm_bore			= m88_idle_aim
+
+anm_shots			= m88_shoot, shoot
+
+anm_open			= m88_reload_start, reload_start
+anm_add_cartridge		= m88_reload, reload
+anm_close			= m88_reload_end, reload_end
+
+anm_reload 			= m88_reload
+
+aim_hud_offset_pos = -0.108,0.03,0.050000
+aim_hud_offset_rot = 0.032,0.02,0.000000
+
+aim_hud_offset_pos_16x9  = -0.108,0.03,0.050000
+aim_hud_offset_rot_16x9  = 0.032,0.02,0.000000

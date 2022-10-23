@@ -1,0 +1,462 @@
+; ����������-������������� �������� ��-14-4 "�����-4"
+;-(TrickSR)-----------------------------------------
+; ������ 							9x39 ��
+; ����� ������ 						445 �� (����� 240 �� + 205 �� ������� � ������������)
+; �������							20
+; ��� ��� ��������(� ������������)	4.0 ��
+; ������������ ��������� ��������	910 �
+; ����������� ��������� ��������	400 � 
+; ���������� ���������				600 �
+; ������� �������� ����				300 �/�
+; ���� ��������						700 �/�
+;---------------------------------------------------
+
+[wpn_groza]:weapon_probability,default_weapon_params,wpn_groza_sounds
+GroupControlSection					= spawn_group
+$spawn								= "weapons\groza"		; option for Level Editor
+$npc								= on					; option for Level Editor
+$prefetch							= 8
+scheduled							= off					; option for ALife Simulator
+cform								= skeleton
+class								= WP_AK74
+description							= str_wpn_groza_descr
+
+parent_section                           = wpn_groza
+
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+
+;-------------------------------------------------------------------------------
+inv_name							= str_wpn_groza
+inv_name_short						= str_wpn_groza
+
+kind                                     = w_rifle
+repair_type                              = weapon
+weapon_class                             = assault_rifle
+tier									 = 4
+
+inv_grid_width     = 4
+inv_grid_height    = 2
+inv_grid_x         = 10
+inv_grid_y         = 16
+
+upgr_icon_x			= 8
+upgr_icon_y			= 128
+upgr_icon_width		= 291
+upgr_icon_height   	= 107
+
+kill_msg_x							= 67
+kill_msg_y							= 123
+kill_msg_width						= 64
+kill_msg_height						= 30
+
+;-------------------------------------------------------------------------------
+cost								= 12500
+inv_weight							= 3.5
+hud									= wpn_groza_hud
+visual								= dynamics\weapons\wpn_groza\wpn_groza.ogf
+
+upgrades							= up_gr_firstab_groza, up_gr_seconab_groza, up_gr_thirdab_groza, up_gr_fourtab_groza, up_gr_fifthab_groza
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_groza
+
+ph_mass								= 4
+
+;-------------------------------------------------------------------------------
+ammo_class							= ammo_9x39_pab9, ammo_9x39_ap
+
+startup_ammo						= 90
+ammo_current						= 120
+ammo_elapsed						= 20
+ammo_limit							= 140
+ammo_mag_size						= 20
+
+fire_modes							= 1, -1
+
+grenade_class						= ammo_vog-25
+
+grenade_vel 						= 76
+launch_speed						= 76
+hand_dependence						= 1
+single_handed						= 0
+
+;--TTX----------------------------------------------------------------------------
+hit_power				= 0.4, 0.4, 0.4, 0.4
+hit_impulse				= 100
+hit_type							= fire_wound
+fire_distance						= 910
+bullet_speed						= 300
+rpm									= 700
+rpm_empty_click						= 200
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 3.0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.005
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.06
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.0006
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.0007
+;-DOF---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+
+;������� ���������
+fire_dispersion_base    = 0.26        ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor = 1.2f
+crosshair_inertion		= 6.80
+
+;������
+cam_return              = 0
+cam_relax_speed         = 5        ;�������� �������� � �������� ���������
+cam_relax_speed_ai      = 360     ;�������� �������� � �������� ���������
+cam_dispersion          = 0.35        ;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc      = 0.2       ;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac     = 0.7       ;����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle           = 50.0        ;������������ ���� ������
+cam_max_angle_horz      = 50.0        ;(degree) maximum shot horizontal degree
+cam_step_angle_horz     = 1.35        ;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 1.5
+PDM_disp_accel_factor 		= 1.5
+PDM_disp_crouch	 			= 1.0
+PDM_disp_crouch_no_acc 		= 1.0
+
+zoom_cam_relax_speed         = 5	    ; scope & ironsight
+zoom_cam_relax_speed_ai      = 360
+zoom_cam_dispersion          = 0.35
+zoom_cam_dispersion_inc      = 0.2
+zoom_cam_dispersion_frac     = 1.0
+zoom_cam_max_angle           = 50.0
+zoom_cam_max_angle_horz      = 50.0
+zoom_cam_step_angle_horz     = 1.25
+
+fire_dispersion_condition_factor = 11        ;���������� ��������� � ��������� ��� ������������ ������
+
+;- for AI ----------------------------------------------------------------------
+min_radius							= 30
+max_radius							= 50
+
+holder_range_modifier				= 1.00					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.00					; �� ������� ��� ������������� eye_fov
+
+;-------------------------------------------------------------------------------
+slot								= 2						; // secondary
+animation_slot						= 8						; type of the animation that will be used
+position                			= -0.026, -0.144, 0.0
+orientation             			= 0, 0, 0
+			
+fire_point              			= 0.000000,0.194,0.274
+fire_point2             			= 0.0, 0.156, 0.285
+			
+flame_particles         			= weapons\generic_weapon05
+smoke_particles         			= weapons\generic_shoot_00
+grenade_flame_particles 			= weapons\generic_weapon01
+			
+shell_point             			= 0.0, 0.194, 0.04
+shell_dir               			= 0.0, 0.0, 0.4
+shell_particles         			= weapons\9x39
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;�� ����� (��������)
+strap_position						= -0.15,-0.38,0.35			; position (offset) and orientation of the weapon when it is strapped
+strap_orientation					= -10,-5,10					; (3rd person view in degrees)
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 1
+
+zoom_enabled						= true					; (on,off)zoom mode (right mouse button)
+zoom_rotate_time					= 0.25
+scope_zoom_factor = 0					; fov for zoom mode
+
+silencer_name						= wpn_addon_silencer
+silencer_x							= 182
+silencer_y							= 11
+
+silencer_hit_power 				= 0.4, 0.4, 0.4, 0.4
+silencer_hit_impulse	 			= 75
+silencer_fire_distance 				= 800
+silencer_bullet_speed	 			= 290
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 109
+grenade_launcher_y					= 30
+scopes_sect				= scope_groza_green
+scopes					= pso, pso_blue
+
+[wpn_groza_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual                              = anomaly_weapons\wpn_groza\wpn_groza_hud.ogf
+
+hands_position                           = -0.075, -0.15, 0.0
+hands_position_16x9                      = -0.075, -0.15, 0.0
+hands_orientation                        = 0.5, 1, 0.15
+hands_orientation_16x9                   = 0.5, 1, 0.15
+item_position			= 0,0,0
+item_orientation		= 0,0,0
+
+shell_point				= 0.0,0.0,0.0
+shell_dir               = 0.0, 1.0, 0.0
+shell_bone				= gilza
+
+fire_bone                                = muzzle
+fire_bone2                               = muzzle_gl
+fire_point                               = 0.004, -0.008, 0
+fire_point2                              = 0, 0, 0
+
+anm_hide                                 = groza_holster
+anm_hide_g                               = groza_holster, idle_g
+anm_hide_w_gl                            = groza_holster
+anm_idle                                 = groza_idle
+anm_idle_aim                             = groza_idle_aim
+anm_idle_aim_moving                      = groza_idle_moving, idle, 0.75
+anm_idle_aim_moving_crouch               = groza_idle_moving, idle, 0.7
+anm_idle_g                               = groza_idle, idle_g
+anm_idle_g_aim                           = groza_idle_aim, idle_g
+anm_idle_moving                          = groza_idle_moving
+anm_idle_moving_crouch                   = groza_idle_crouch
+anm_idle_moving_crouch_g                 = groza_idle_crouch, idle_g
+anm_idle_moving_crouch_g_aim             = groza_idle_moving, idle_g, 0.7
+anm_idle_moving_crouch_w_gl              = groza_idle_crouch
+anm_idle_moving_crouch_w_gl_aim          = groza_idle_moving, idle, 0.7
+anm_idle_moving_g                        = groza_idle_moving, idle_g
+anm_idle_moving_g_aim                    = groza_idle_moving, idle_g, 0.75
+anm_idle_moving_w_gl                     = groza_idle_moving
+anm_idle_moving_w_gl_aim                 = groza_idle_moving, idle, 0.75
+anm_idle_sprint                          = groza_idle_sprint
+anm_idle_sprint_g                        = groza_idle_sprint, idle_g
+anm_idle_sprint_w_gl                     = groza_idle_sprint
+anm_idle_w_gl                            = groza_idle
+anm_idle_w_gl_aim                        = groza_idle_aim
+anm_reload                               = groza_reload, reload
+anm_reload_empty                         = groza_reload_empty, reload_empty
+anm_reload_empty_w_gl                    = groza_reload_empty, reload_empty
+anm_reload_misfire             		     = groza_misfire, misfire
+anm_reload_misfire_w_gl             	 = groza_misfire, misfire
+anm_reload_g                             = groza_reload_g, reload_g
+anm_reload_w_gl                          = groza_reload, reload
+anm_shots                                = groza_shoot, shoot
+anm_shots_g                              = groza_shoot_g, shoot_g
+anm_shots_w_gl                           = groza_shoot, shoot
+anm_show                                 = groza_draw
+anm_show_g                               = groza_draw, idle_g
+anm_show_w_gl                            = groza_draw
+anm_switch                               = groza_sw_off, sw_off
+anm_switch_g                             = groza_sw_on, sw_on
+
+aim_hud_offset_pos                       = -0.0772, 0.0052, -0.015
+aim_hud_offset_pos_16x9                  = -0.0772, 0.0052, -0.015
+aim_hud_offset_rot                       = 0.004, 0.0084, 0
+aim_hud_offset_rot_16x9                  = 0.004, 0.0084, 0
+
+lowered_hud_offset_pos					 = 0.07, -0.04, -0.02
+lowered_hud_offset_pos_16x9				 = 0.07, -0.04, -0.02
+lowered_hud_offset_rot					 = -0.1, -0.65, 0.4
+lowered_hud_offset_rot_16x9				 = -0.1, -0.65, 0.4
+
+gl_hud_offset_pos                        = -0.0764, -0.0543, -0.07
+gl_hud_offset_pos_16x9                   = -0.0764, -0.0543, -0.07
+gl_hud_offset_rot                        = -0.1445, 0.0065, 0
+gl_hud_offset_rot_16x9                   = -0.1445, 0.0065, 0
+
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+[scope_groza_green]
+scope_name 					= pso_green
+scope_x                     = 57		; offset in inventory icon
+scope_y                     = -12
+
+[wpn_groza_pso]:wpn_groza
+1icon_layer                              = pso
+1icon_layer_x                            = 57
+1icon_layer_y                            = -12
+inv_weight                               = 4
+
+hud                                      = wpn_groza_pso_hud
+
+scope_status                             = 1
+scope_dynamic_zoom                       = off
+scope_texture                            = wpn_owa_crosshair
+scope_zoom_factor                        = 40
+
+scope_zoom_factor_alt             = 0
+
+[wpn_groza_pso_hud]:wpn_groza_hud
+
+
+[wpn_groza_pso_blue]:wpn_groza
+1icon_layer                              = pso_blue
+1icon_layer_x                            = 57
+1icon_layer_y                            = -12
+inv_weight                               = 4
+
+hud                                      = wpn_groza_pso_blue_hud
+
+scope_status                             = 1
+scope_dynamic_zoom                       = on
+scope_texture                            = wpn_owa_crosshair_blue
+scope_zoom_factor                        = 10
+
+scope_zoom_factor_alt             = 0
+
+[wpn_groza_pso_blue_hud]:wpn_groza_hud
+
+
+
+;-----------------------------------------------------------------------------
+; ����������	(��-14-2 "�����-2")
+;-----------------------------------------------------------------------------
+[wpn_groza_nimble]:wpn_groza
+$spawn								= "weapons\unique\wpn_groza_nimble"	; name and section in level editor
+inv_name							= str_wpn_groza_nimble
+description							= str_wpn_groza_nimble_descr
+
+cost								= 15000
+
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 1
+
+inv_weight				= 3.0
+
+parent_section			= wpn_groza_nimble
+scopes_sect				= scope_groza_nimble_green
+scopes					= pso, pso_blue
+
+
+ammo_class 							= ammo_5.45x39_fmj, ammo_5.45x39_ap
+ammo_elapsed						= 30
+ammo_current						= 30
+ammo_limit							= 30
+ammo_mag_size 						= 30
+
+fire_modes 							= 1, 3, -1
+
+hit_power				= 0.36, 0.36, 0.36, 0.36
+fire_distance						= 4000
+bullet_speed						= 890
+rpm 								= 625
+
+;-���������-----------------------------------------------------------------------------
+;������� ���������
+fire_dispersion_base    = 0.2 ;0.15        ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor = 1.2f
+crosshair_inertion		= 6
+
+;������
+cam_return							= 0
+cam_relax_speed						= 5						; �������� �������� � �������� ���������
+cam_relax_speed_ai					= 360					; �������� �������� � �������� ���������
+cam_dispersion						= 0.3					; ���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc					= 0.18					; ���������e cam_dispersion � ������ ���������
+cam_dispersion_frac					= 1.0					; ����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					; ������������ ���� ������
+cam_max_angle_horz					= 50.0					; (degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1						; (degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.6
+PDM_disp_vel_factor					= 2.4
+PDM_disp_accel_factor				= 2.4
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 5						; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.3
+zoom_cam_dispersion_inc				= 0.18
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1
+fire_dispersion_condition_factor	= 10					; ���������� ��������� � ��������� ��� ������������ ������
+
+silencer_fire_distance 				= 830
+
+visual                  = dynamics\weapons\wpn_groza\wpn_groza_nimble.ogf
+
+inv_grid_width     = 4
+inv_grid_height    = 2
+inv_grid_x         = 26
+inv_grid_y         = 34
+
+upgr_icon_x							= 0
+upgr_icon_y							= 1526
+upgr_icon_width						= 301
+upgr_icon_height 					= 138
+
+hud = wpn_groza_nimble_hud
+
+[wpn_groza_nimble_hud]:wpn_groza_hud
+item_visual						= dynamics\weapons\wpn_groza\wpn_groza_nimble_hud.ogf
+
+[scope_groza_nimble_green]
+scope_name 					= pso_green
+scope_x                     = 57		; offset in inventory icon
+scope_y                     = -12
+
+[wpn_groza_nimble_pso]:wpn_groza_nimble
+1icon_layer                              = pso
+1icon_layer_x                            = 57
+1icon_layer_y                            = -12
+inv_weight                               = 3.5
+
+hud                                      = wpn_groza_nimble_pso_hud
+
+scope_status                             = 1
+scope_dynamic_zoom                       = off
+scope_texture                            = wpn_owa_crosshair
+scope_zoom_factor                        = 40
+
+scope_zoom_factor_alt             = 0
+
+[wpn_groza_nimble_pso_hud]:wpn_groza_nimble_hud
+
+
+[wpn_groza_nimble_pso_blue]:wpn_groza_nimble
+1icon_layer                              = pso_blue
+1icon_layer_x                            = 57
+1icon_layer_y                            = -12
+inv_weight                               = 3.5
+
+hud                                      = wpn_groza_nimble_pso_blue_hud
+
+scope_status                             = 1
+scope_dynamic_zoom                       = on
+scope_texture                            = wpn_owa_crosshair_blue
+scope_zoom_factor                        = 10
+
+scope_zoom_factor_alt             = 0
+
+[wpn_groza_nimble_pso_blue_hud]:wpn_groza_nimble_hud

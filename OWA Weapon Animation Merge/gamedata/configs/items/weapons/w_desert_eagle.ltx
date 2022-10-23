@@ -1,0 +1,289 @@
+; Magnum Desert Eagle (Mark VII) .45ACP
+;-(TrickSR)-----------------------------------------
+; ������ 							11.43x23 �� (.45ACP)
+; ����� ������ 						152 ��
+; �������							8
+; ��� ��� ��������					1.897
+; ������������ ��������� ��������	810 �
+; ����������� ��������� ��������	80 �
+; ���������� ���������				---
+; ������� �������� ����				400 �/�
+; ���� ��������						30 �/�
+;---------------------------------------------------
+
+[wpn_desert_eagle]:weapon_probability,default_weapon_params,wpn_desert_eagle_sounds
+GroupControlSection					= spawn_group
+discovery_dependency 				=
+$spawn								= "weapons\Desert Eagle"	; option for Level Editor
+$npc			 					= on						; option for Level Editor
+$prefetch 							= 8
+scheduled 							= off						; option for ALife Simulator
+cform 								= skeleton
+class 								= WP_PM
+description							= str_wpn_desert_eagle_descr
+
+ef_main_weapon_type					= 0
+ef_weapon_type						= 5
+
+kind                                     = w_pistol
+repair_type                              = weapon
+tier									 = 3
+
+;-------------------------------------------------------------------------------
+inv_name							= str_wpn_desert_eagle
+inv_name_short						= str_wpn_desert_eagle
+
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 2
+inv_grid_y         = 29
+
+upgr_icon_x			= 794
+upgr_icon_y			= 614
+upgr_icon_width		= 203
+upgr_icon_height   	= 132
+
+kill_msg_x							= 194
+kill_msg_y							= 123
+kill_msg_width						= 46
+kill_msg_height						= 27
+
+;-------------------------------------------------------------------------------
+cost								= 5500
+inv_weight							= 1.897
+hud 								= wpn_desert_eagle_hud
+visual								= dynamics\weapons\wpn_desert_eagle\wpn_desert_eagle.ogf
+
+        upgrades                    = up_gr_firstab_desert_eagle, up_gr_seconab_desert_eagle, up_gr_thirdab_desert_eagle, up_gr_fourtab_desert_eagle, up_gr_fifthab_desert_eagle
+        installed_upgrades          =
+        upgrade_scheme              = upgrade_scheme_desert_eagle
+
+ph_mass			 					= 2
+
+;-------------------------------------------------------------------------------
+ammo_class		 					= ammo_11.43x23_fmj, ammo_11.43x23_hydro
+
+startup_ammo 						= 90
+ammo_current						= 42
+ammo_elapsed		 				= 8
+ammo_limit							= 48
+ammo_mag_size		 				= 8
+
+hand_dependence		 				= 1
+single_handed						= 1
+
+fire_modes							= 1
+
+;-TTX---------------------------------------------------------------------------
+hit_power           	= 1.25, 1.25, 1.25, 1.25
+hit_impulse	 		 	= 75
+hit_type 							= fire_wound
+fire_distance						= 810
+bullet_speed		 				= 400
+rpm									= 200
+rpm_empty_click 	 				= 120
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 1.0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.01
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.1
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.00225
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.00225
+;-DOF---------------------------------------------------------------------------
+zoom_dof							= -1000, 1.0, 1000
+reload_dof							= 0.0, 0.5, 5, 1.7
+
+
+;-DISP------------------------------------------
+fire_dispersion_base		= 0.18 			;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor		= 1.1
+crosshair_inertion			= 4
+
+;������
+cam_return					= 0
+cam_relax_speed         	= 6			;�������� �������� � �������� ���������
+cam_relax_speed_ai      	= 120.75
+cam_dispersion          	= 1.8		;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc			= 1.8		;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac			= 1.0		;����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 15.0		;������������ ���� ������
+cam_max_angle_horz			= 15.0		;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 1.0		;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 1.1
+PDM_disp_accel_factor 		= 1.1
+PDM_disp_crouch	 				= 1.0
+PDM_disp_crouch_no_acc 			= 1.0
+
+fire_dispersion_condition_factor = 12		;���������� ��������� � ��������� ��� ������������ ������
+
+
+;- for AI ----------------------------------------------------------------------
+min_radius							= 0
+max_radius							= 45
+
+holder_range_modifier				= 1.00					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.00					; �� ������� ��� ������������� eye_fov
+
+;-------------------------------------------------------------------------------
+slot 			 					= 1
+animation_slot						= 1						; type of the animation that will be used
+
+position							= -0.021, -0.085, 0.0
+orientation 						= 0, 0, 0
+
+fire_point							= 0.0, 0.133, 0.22
+
+flame_particles		 				= weapons\generic_weapon03
+smoke_particles		 				= weapons\generic_shoot_00
+
+shell_point		 					= 0.0, 0.133, 0.047
+shell_dir		 					= 0.0, 0.0, 0.4
+shell_particles	 					= weapons\45acp
+
+;--STRAP PARAMETERS-----------------------------------------------------------------
+;strap_position 					= -0.1,-0.45,0.2		; position (offset) and orientation of the weapon when it is strapped
+;strap_orientation					= 1.57,0,0				; (3rd person view)
+;strap_bone0						= bip01_spine2
+;strap_bone1						= bip01_spine1
+
+light_color		 					= 0.6,0.5,0.3
+light_range		 					= 3.0
+light_var_color		 				= 0.05
+light_var_range		 				= 0.5
+light_time 		 					= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 0
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor = 0
+
+silencer_name						= wpn_addon_silencer		; section name for the attachable silencer
+silencer_x                  = 74		; offset in inventory icon
+silencer_y                  = -21
+
+silencer_hit_power 				= 0.5, 0.5, 0.5, 0.5
+silencer_hit_impulse	 			= 150
+silencer_fire_distance 				= 400
+silencer_bullet_speed	 			= 285
+
+;silencer_flame_particles 			= weapons\generic_weapon01
+silencer_smoke_particles 			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time 				= 0.2
+
+[wpn_desert_eagle_hud]:hud_base
+zoom_hide_crosshair			= true
+
+hands_position              = -0.055, -0.155, -0.22
+hands_position_16x9         = -0.055, -0.155, -0.22
+hands_orientation           = -0.9, 0.7, 2.5
+hands_orientation_16x9      = -0.9, 0.7, 2.5
+
+item_position               = 0.000746, -0.000321, 0.003479
+item_orientation            = 1.239378, -0.134046, -2.052052
+
+item_visual                 = anomaly_weapons\wpn_desert_eagle\wpn_desert_eagle_hud.ogf
+attach_place_idx			= 0
+
+shell_point					= 0,0,0
+shell_bone              	= gilza
+
+fire_point					= 0,0,0
+fire_bone               	= muzzle
+
+anm_hide                    = lancew_cz75_holster
+anm_hide_empty              = lancew_cz75_holster, desert_eagle_opened
+anm_idle                    = desert_eagle_idle
+anm_idle_aim                = desert_eagle_idle_aim
+anm_idle_aim_empty          = desert_eagle_idle_aim, desert_eagle_opened
+anm_idle_aim_moving         = desert_eagle_idle_moving, idle, 0.75
+anm_idle_aim_moving_crouch  = desert_eagle_idle_moving, idle, 0.7
+anm_idle_aim_moving_crouch_empty = desert_eagle_idle_moving, desert_eagle_opened, 0.7
+anm_idle_aim_moving_empty   = desert_eagle_idle_moving, desert_eagle_opened, 0.75
+anm_idle_empty              = desert_eagle_idle, desert_eagle_opened
+anm_idle_moving             = desert_eagle_idle_moving
+anm_idle_moving_crouch      = desert_eagle_idle_crouch
+anm_idle_moving_crouch_empty = desert_eagle_idle_crouch, desert_eagle_opened
+anm_idle_moving_empty       = desert_eagle_idle_moving, desert_eagle_opened
+anm_idle_sprint             = cz75a_idle_sprint
+anm_idle_sprint_empty       = cz75a_idle_sprint, desert_eagle_opened
+anm_reload                  = desert_eagle_reload
+anm_reload_empty            = desert_eagle_reload_empty
+anm_reload_misfire          = pistol_misfire, misfire
+anm_shot_l                  = desert_eagle_shoot, desert_eagle_shoot_last
+anm_shots                   = desert_eagle_shoot
+anm_show                    = desert_eagle_draw
+anm_show_empty              = desert_eagle_draw, desert_eagle_opened
+
+aim_hud_offset_pos          = -0.0768, 0.032, 0.0
+aim_hud_offset_pos_16x9     = -0.0768, 0.032, 0.0
+aim_hud_offset_rot          = 0.0092, 0.006, 0.005
+aim_hud_offset_rot_16x9     = 0.0092, 0.006, 0.005
+
+aim_hud_offset_alt_pos                       = 0.024, 0.1, 0.07
+aim_hud_offset_alt_pos_16x9                  = 0.024, 0.1, 0.07
+aim_hud_offset_alt_rot                       = 0.05, -0.08, 0.7
+aim_hud_offset_alt_rot_16x9                  = 0.05, -0.08, 0.7
+
+lowered_hud_offset_pos		        = 0.04, -0.22, -0.06
+lowered_hud_offset_pos_16x9	        = 0.04, -0.22, -0.06
+lowered_hud_offset_rot		        = -0.7, 0, -0.05
+lowered_hud_offset_rot_16x9	        = -0.7, 0, -0.05
+
+gl_hud_offset_pos			= 0,0,0
+gl_hud_offset_rot			= 0,0,0
+
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+
+;-----------------------------------------------------------------------------
+; ��������v�
+;-----------------------------------------------------------------------------
+[wpn_desert_eagle_nimble]:wpn_desert_eagle
+$spawn								= "weapons\wpn_desert_eagle_nimble"
+inv_name							= str_wpn_desert_eagle_steppe
+description							= str_wpn_desert_eagle_steppe_descr
+
+cost								= 7000
+
+fire_dispersion_base				= 0.015
+
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 38
+inv_grid_y         = 39
+
+upgr_icon_x							= 505
+upgr_icon_y							= 1205
+upgr_icon_width						= 300
+upgr_icon_height 					= 130
+
+hud 				= wpn_desert_eagle_nimble_hud
+
+[wpn_desert_eagle_nimble_hud]:wpn_desert_eagle_hud
+item_visual                 = anomaly_weapons\wpn_desert_eagle\wpn_desert_eagle_nimble_hud.ogf
+
+aim_hud_offset_pos                       = -0.0768, 0.0225, 0.0
+aim_hud_offset_pos_16x9                  = -0.0768, 0.0225, 0.0
+aim_hud_offset_rot                       = 0.0092, 0.004, 0.005
+aim_hud_offset_rot_16x9                  = 0.0092, 0.004, 0.005

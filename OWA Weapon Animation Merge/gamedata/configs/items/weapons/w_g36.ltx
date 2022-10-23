@@ -1,0 +1,293 @@
+[wpn_g36]:weapon_probability,default_weapon_params,wpn_g36_sounds
+GroupControlSection					= spawn_group
+$spawn								= "weapons\g36"			; option for Level Editor
+$npc								= on					; option for Level Editor
+$prefetch							= 8
+scheduled							= off					; option for ALife Simulator
+cform								= skeleton
+class								= WP_AK74
+description 						= str_wpn_g36_descr
+
+ef_main_weapon_type					= 2
+ef_weapon_type						= 7
+
+kind                                     = w_rifle
+repair_type                              = weapon
+weapon_class                             = assault_rifle
+tier									 = 4
+
+;-------------------------------------------------------------------------------
+inv_name 							= str_wpn_g36
+inv_name_short						= str_wpn_g36
+
+inv_grid_width     = 5
+inv_grid_height    = 2
+inv_grid_x         = 0
+inv_grid_y         = 24
+
+upgr_icon_x			= 275
+upgr_icon_y			= 8
+upgr_icon_width		= 292
+upgr_icon_height   	= 120
+
+kill_msg_x							= 157
+kill_msg_y							= 29
+kill_msg_width						= 78
+kill_msg_height						= 31
+
+;-------------------------------------------------------------------------------
+cost 								= 20000
+inv_weight							= 3.63
+hud									= wpn_g36_hud
+visual								= dynamics\weapons\wpn_g36\wpn_g36.ogf
+
+upgrades                                 = up_gr_firstab_g36, up_gr_seconab_g36, up_gr_thirdab_g36, up_gr_fourtab_g36, up_gr_fourtcd_g36, up_gr_fourtef_g36, up_gr_fifthab_g36, up_gr_fifthcd_g36, up_gr_fifthef_g36
+installed_upgrades                       =
+upgrade_scheme                           = upgrade_scheme_g36
+
+ph_mass								= 4
+
+;-------------------------------------------------------------------------------
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ap
+
+startup_ammo						= 90
+ammo_current						= 180
+ammo_elapsed						= 30
+ammo_limit							= 210
+ammo_mag_size						= 30
+
+fire_modes							= 1, 3, -1
+
+grenade_class						= ammo_m209
+
+grenade_vel 						= 76
+launch_speed						= 76
+hand_dependence						= 1
+single_handed						= 0
+
+;-TTX---------------------------------------------------------------------------
+hit_power               = 0.35, 0.35, 0.35, 0.35
+hit_impulse             = 100
+hit_type							= fire_wound
+fire_distance						= 4300
+bullet_speed						= 925					; ��������� �������� ����
+rpm									= 750
+rpm_empty_click						= 200
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 3.0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.004
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.05
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.0004
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.00045
+;-DOF---------------------------------------------------------------------------
+;zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+
+;-------------------------------------------------------------------------------
+;������� ���������
+fire_dispersion_base	   = 0.24   ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor    = 1.2f
+crosshair_inertion		   = 5.80
+
+;������
+cam_return 			   = 0
+cam_relax_speed        = 10		;�������� �������� � �������� ���������
+cam_relax_speed_ai     = 120.75
+cam_dispersion         = 0.2	;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc     = 0.1    ;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac    = 1.0    ;����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle          = 50.0    ;������������ ���� ������
+cam_max_angle_horz     = 50.0   ;(degree) maximum shot horizontal degree
+cam_step_angle_horz    = 1.8    ; (degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 2.0
+PDM_disp_accel_factor 		= 2.0
+PDM_disp_crouch	 			= 1.0
+PDM_disp_crouch_no_acc 		= 1.0
+
+zoom_cam_relax_speed         = 10     ; scope & ironsight
+zoom_cam_relax_speed_ai      = 360
+zoom_cam_dispersion          = 0.15
+zoom_cam_dispersion_inc      = 0.075
+zoom_cam_dispersion_frac     = 1.0
+zoom_cam_max_angle           = 50.0
+zoom_cam_max_angle_horz      = 50.0
+zoom_cam_step_angle_horz     = 1.6
+
+fire_dispersion_condition_factor = 7        ;���������� ��������� � ��������� ��� ������������ ������
+
+;- for AI ----------------------------------------------------------------------
+min_radius							= 30
+max_radius							= 90
+
+holder_range_modifier				= 1.25					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.00					; �� ������� ��� ������������� eye_fov
+
+hit_probability_gd_novice			= 0.55
+hit_probability_gd_stalker			= 0.65
+hit_probability_gd_veteran			= 0.75
+hit_probability_gd_master			= 0.85
+
+;-------------------------------------------------------------------------------
+slot								= 2						; // secondary
+animation_slot						= 2						; type of the animation that will be used
+
+position                			= -0.026, -0.132, 0.0
+orientation             			= 0, -8 , 0
+			
+fire_point              			=  0.0, 0.21, 0.58
+fire_point2             			=  0.0, 0.21, 0.71
+			
+flame_particles         			= weapons\generic_weapon05
+smoke_particles         			= weapons\generic_shoot_00
+grenade_flame_particles 			= weapons\generic_weapon01
+			
+shell_point             			= 0.0, 0.21, 0.13
+shell_dir               			= 0.0, 0.0, 0.4
+shell_particles         			= weapons\556x45
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;�� ����� (��������)
+strap_position						= -0.26,-0.11,0.25	; position (offset) and orientation of the weapon when it is strapped
+strap_orientation					= -15,-9,110	; (3rd person view in degrees)
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 1
+silencer_status						= 2
+grenade_launcher_status				= 2
+
+zoom_enabled						= true					; (on,off)zoom mode (right mouse button)
+scope_zoom_factor					= 50
+
+scope_texture						= wpn_owa_crosshair_g36
+scope_name							= acog
+scope_x								= 78
+scope_y								= 0
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x          = 129		; offset in inventory icon
+grenade_launcher_y          = 27
+
+silencer_name						= wpn_addon_silencer
+silencer_x                  = 225		; offset in inventory icon
+silencer_y                  = 10
+
+;silencer_hit_power 				= 0.45, 0.45, 0.45, 0.45
+;silencer_hit_impulse	 			= 10
+silencer_fire_distance 				= 850
+silencer_bullet_speed	 			= 290
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6, 0.5, 0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+
+[wpn_g36_hud]:hud_base
+zoom_hide_crosshair	= true
+attach_place_idx	= 0
+item_visual                              = anomaly_weapons\wpn_g36\wpn_g36_hud.ogf
+
+hands_position                           = -0.065, -0.175, -0.06
+hands_position_16x9                      = -0.065, -0.175, -0.06
+hands_orientation                        = 0, 0, 0.15
+hands_orientation_16x9                   = 0, 0, 0.15
+
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+
+shell_point		= 0,0,0
+shell_dir       = 0.0, 1.0, 0.0
+shell_bone		= gilza
+
+fire_bone                                = muzzle
+fire_bone2                               = muzzle_gl
+fire_point                               = 0, -0.0035, 0.082
+fire_point2                              = 0, 0, 0
+
+anm_hide                                 = g36k_holster
+anm_hide_g                               = g36k_holster_grenade, idle_grenade
+anm_hide_w_gl                            = g36k_holster_w_gl, idle_w_gl
+anm_idle                                 = g36k_idle
+anm_idle_aim                             = g36k_idle_aim
+anm_idle_aim_moving                      = g36k_idle_moving, idle, 0.75
+anm_idle_aim_moving_crouch               = g36k_idle_moving, idle, 0.7
+anm_idle_g                               = g36k_idle_grenade, idle_grenade
+anm_idle_g_aim                           = g36k_idle_aim_grenade, idle_grenade
+anm_idle_moving                          = g36k_idle_moving
+anm_idle_moving_crouch                   = g36k_idle_crouch
+anm_idle_moving_crouch_g                 = g36k_idle_crouch_grenade, idle_grenade
+anm_idle_moving_crouch_g_aim             = g36k_idle_moving_grenade, idle_grenade, 0.7
+anm_idle_moving_crouch_w_gl              = g36k_idle_crouch_w_gl, idle_w_gl
+anm_idle_moving_crouch_w_gl_aim          = g36k_idle_moving_w_gl, idle_w_gl, 0.7
+anm_idle_moving_g                        = g36k_idle_moving_grenade, idle_grenade
+anm_idle_moving_g_aim                    = g36k_idle_moving_grenade, idle_grenade, 0.75
+anm_idle_moving_w_gl                     = g36k_idle_moving_w_gl, idle_w_gl
+anm_idle_moving_w_gl_aim                 = g36k_idle_moving_w_gl, idle_w_gl, 0.75
+anm_idle_sprint                          = g36k_idle_sprint
+anm_idle_sprint_g                        = g36k_idle_sprint_grenade, idle_grenade
+anm_idle_sprint_w_gl                     = g36k_idle_sprint_w_gl, idle_w_gl
+anm_idle_w_gl                            = g36k_idle_w_gl, idle_w_gl
+anm_idle_w_gl_aim                        = g36k_idle_aim_w_gl, idle_w_gl
+anm_reload                               = g36_new_reload, reload
+anm_reload_empty                         = g36_new_reload_empty, reload_empty
+anm_reload_empty_w_gl                    = g36_new_reload_empty_w_gl, reload_empty_w_gl
+anm_reload_g                             = g36_new_reload_grenade, reload_grenade
+anm_reload_w_gl                          = g36_new_reload_w_gl, reload_w_gl
+anm_shots                                = g36k_shoot, shoot
+anm_shots_g                              = g36k_shoot_grenade, shoot_grenade
+anm_shots_w_gl                           = g36k_shoot_w_gl, shoot_w_gl
+anm_show                                 = g36k_draw
+anm_show_g                               = g36k_draw_grenade, idle_grenade
+anm_show_w_gl                            = g36k_draw_w_gl, idle_w_gl
+anm_switch                               = g36k_switch_off, switch_off
+anm_switch_g                             = g36k_switch_on, switch_on
+	
+aim_hud_offset_pos                       = -0.0885, 0.0225, -0.17
+aim_hud_offset_pos_16x9                  = -0.0885, 0.0225, -0.17
+aim_hud_offset_rot                       = 0.0007, 0.0005, 0
+aim_hud_offset_rot_16x9                  = 0.0007, 0.0005, 0
+
+aim_hud_offset_alt_pos                   = -0.0885, -0.0085, -0.105
+aim_hud_offset_alt_pos_16x9              = -0.0885, -0.0085, -0.105
+aim_hud_offset_alt_rot                   = 0.0007, 0.0005, 0
+aim_hud_offset_alt_rot_16x9              = 0.0007, 0.0005, 0
+
+lowered_hud_offset_pos			= 0.077, -0.04, -0.02
+lowered_hud_offset_pos_16x9		= 0.077, -0.04, -0.02
+lowered_hud_offset_rot			= -0.06, -0.65, 0.4
+lowered_hud_offset_rot_16x9		= -0.06, -0.65, 0.4
+
+gl_hud_offset_pos                        = -0.0878, -0.03, -0.12
+gl_hud_offset_pos_16x9                   = -0.0878, -0.03, -0.12
+gl_hud_offset_rot                        = -0.075, 0, 0
+gl_hud_offset_rot_16x9                   = -0.075, 0, 0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+freelook_z_offset_mul					 = 0.1

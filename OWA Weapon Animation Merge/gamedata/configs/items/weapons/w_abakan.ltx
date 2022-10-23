@@ -1,0 +1,340 @@
+[wpn_abakan]:weapon_probability,default_weapon_params,wpn_abakan_sounds
+GroupControlSection					= spawn_group
+$spawn								= "weapons\abakan"		; name and section in level editor
+$npc								= on
+$prefetch							= 8
+scheduled							= off					; option for ALife Simulator
+cform								= skeleton
+class								= WP_AK74				; class of the weapon that corresponding to CPP class
+description							= str_wpn_abakan_descr
+parent_section              = wpn_abakan
+
+
+ef_main_weapon_type					= 2
+ef_weapon_type						= 7
+
+kind                                     = w_rifle
+repair_type                              = weapon
+weapon_class                             = assault_rifle
+tier									 = 3
+
+;-------------------------------------------------------------------------------
+inv_name							= str_wpn_abakan			; name in inventory
+inv_name_short						= str_wpn_abakan
+
+inv_grid_width     = 5
+inv_grid_height    = 2
+inv_grid_x         = 5
+inv_grid_y         = 16
+
+upgr_icon_x							= 591
+upgr_icon_y							= 741
+upgr_icon_width						= 292
+upgr_icon_height 					= 116
+
+kill_msg_x							= 119
+kill_msg_y							= 199
+kill_msg_width						= 93
+kill_msg_height						= 32
+
+;-------------------------------------------------------------------------------
+cost								= 6000					; the price of the item
+inv_weight							= 3.85
+hud									= wpn_abakan_hud
+visual								= dynamics\weapons\wpn_abakan\wpn_abakan.ogf
+
+        upgrades                    = up_gr_firstab_abakan, up_gr_seconab_abakan, up_gr_thirdab_abakan, up_gr_fourtab_abakan, up_gr_fifthab_abakan
+        installed_upgrades          =
+        upgrade_scheme              = upgrade_scheme_abakan
+
+ph_mass								= 4
+
+;-------------------------------------------------------------------------------
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_ap	; name of the ltx-section of used ammo
+
+startup_ammo						= 90
+ammo_current						= 180
+ammo_elapsed						= 30					; obsolete
+ammo_limit							= 210
+ammo_mag_size						= 30					; clip (magazine) size
+
+fire_modes							= 2, -1
+cycle_down 							= false
+
+grenade_class						= ammo_vog-25
+
+grenade_vel 						= 73.5
+launch_speed						= 73.5
+hand_dependence						= 1
+single_handed						= 0
+
+;-���---------------------------------------------------------------------------
+hit_power            = 0.35, 0.35, 0.35, 0.35
+hit_impulse          = 100    ; size of physic impulse by bullet
+hit_type							= fire_wound			; [] type of the wound
+fire_distance						= 4100					; maximum fire distance that bullet can fly
+bullet_speed						= 900					; starting bullet speed
+rpm									= 600					; max round per minute
+rpm_mode_2 							= 1800
+rpm_empty_click						= 200
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.0037
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.05
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.0006
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.00065
+
+;-DOF---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 150
+reload_dof							= 0.0, 0.5, 5, 2
+
+;-���������---------------------------------------------------------------------
+fire_dispersion_base    = 0.29 ;0.15        ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+fire_dispersion_condition_factor = 9        ;���������� ��������� � ��������� ��� ������������ ������
+
+dispersion_start					= 2
+
+base_dispersioned_bullets_count		= 2 					; ���������� ����, ������������ � ������� ���������� ��� ������
+base_dispersioned_bullets_speed		= 900					; ��������� �������� ����, ������������ � ������� ���������� ��� ������
+
+control_inertion_factor				= 1.4f
+crosshair_inertion					= 6.85
+
+;������
+cam_return				 = 0
+cam_relax_speed          = 10     ;�������� �������� � �������� ���������
+cam_relax_speed_ai       = 360
+cam_dispersion           = 0.8     ;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc       = 0.4      ;���������e cam_dispersion � ����v� �v�������
+cam_dispersion_frac      = 1.0    ;����� ����� ���v������ �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle            = 50.0       ;����������v� ���� ������
+cam_max_angle_horz       = 50.0      ;(degree) maximum shot horizontal degree
+cam_step_angle_horz      = 0.5    ;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.5
+PDM_disp_vel_factor 		= 2.0
+PDM_disp_accel_factor 		= 2.0
+PDM_disp_crouch	 			= 1.0
+PDM_disp_crouch_no_acc 		= 1.0
+
+
+zoom_cam_relax_speed         = 10	    ; scope & ironsight
+zoom_cam_relax_speed_ai      = 360
+zoom_cam_dispersion          = 0.7
+zoom_cam_dispersion_inc      = 0.35
+zoom_cam_dispersion_frac     = 1.0
+zoom_cam_max_angle           = 50.0
+zoom_cam_max_angle_horz      = 50.0
+zoom_cam_step_angle_horz     = 0.5
+
+
+;- for AI ----------------------------------------------------------------------
+min_radius							= 30					; [] for AI
+max_radius							= 50					; [] for AI
+
+holder_range_modifier				= 1.00					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.00					; �� ������� ��� ������������� eye_fov
+
+;-------------------------------------------------------------------------------
+slot								= 2						; // secondary
+animation_slot						= 2						; type of the animation that will be used
+
+position                = -0.026, -0.178, 0.0
+orientation             = 0, 0, 0
+
+
+fire_point				= -0.0,0.228,0.713
+fire_point2             = -0.0,0,153.608
+
+flame_particles         = weapons\generic_weapon05
+smoke_particles         = weapons\generic_shoot_00
+grenade_flame_particles = weapons\generic_weapon01
+
+shell_point             = 0.120000,0.000000,0.070000
+shell_dir               = 0.0, 0.0, 0.4
+shell_particles         = weapons\545x39
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;�� ����� (��������)
+strap_position						= -0.26,-0.11,0.25		; position (offset) and orientation of the weapon when it is strapped
+strap_orientation					= -15,-9,110			; (3rd person view in degrees)
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 2						; 0 - no addon
+silencer_status						= 0						; 1 - permanent
+grenade_launcher_status				= 0						; 2 - attachable
+
+zoom_enabled						= true					; (on,off)zoom mode (right mouse button)
+zoom_rotate_time					= 0.25
+scope_zoom_factor = 0					; fov for zoom mode
+
+scopes_sect							= wpn_abakan_addon_scope_green
+scopes								= pso, pso_blue
+
+grenade_launcher_name				= wpn_addon_grenade_launcher	; section name for the attachable grenade launcher
+grenade_launcher_x          = 116		; offset in inventory icon
+grenade_launcher_y          = 18
+
+silencer_name				= wpn_addon_silencer	; section name for the attachable silencer
+silencer_x                  = 232		; offset in inventory icon
+silencer_y                  = 9
+
+;silencer_hit_power 				= 0.45, 0.45, 0.45, 0.45
+;silencer_hit_impulse	 			= 10
+silencer_fire_distance 				= 850
+silencer_bullet_speed	 			= 290
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+
+[wpn_abakan_hud]:hud_base
+zoom_hide_crosshair        = true
+attach_place_idx           = 0
+item_visual                = dynamics\weapons\wpn_abakan\wpn_abakan_hud.ogf
+
+hands_position              = -0.13, -0.138, -0.15
+hands_position_16x9         = -0.13, -0.138, -0.15
+hands_orientation           = 0.5, -0.5, 0
+hands_orientation_16x9      = 0.5, -0.5, 0
+
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+
+shell_point                 = 0,0,0
+shell_dir               	= 0.0, 1.0, 0.0
+shell_bone                	= gilza
+
+fire_point					= 0,0,0
+fire_bone                   = muzzle
+fire_point2                 = 0,0,0
+fire_bone2                	= muzzle_gl
+
+anm_hide                    = abakan_holster
+anm_hide_g                  = abakan_holster_w_gl
+anm_hide_w_gl               = abakan_holster_w_gl
+anm_idle                    = abakan_idle
+anm_idle_aim                = abakan_idle_aim
+anm_idle_aim_moving         = abakan_idle_moving, idle, 0.75
+anm_idle_aim_moving_crouch  = abakan_idle_crouch
+anm_idle_g                  = abakan_idle_w_gl
+anm_idle_g_aim              = abakan_idle_aim_w_gl
+anm_idle_moving             = abakan_idle_moving
+anm_idle_moving_crouch      = abakan_idle_crouch
+anm_idle_moving_crouch_g    = abakan_idle_crouch_w_gl
+anm_idle_moving_crouch_g_aim = abakan_idle_moving_w_gl, idle, 0.7
+anm_idle_moving_crouch_w_gl = abakan_idle_crouch_w_gl
+anm_idle_moving_crouch_w_gl_aim = abakan_idle_moving_w_gl, idle, 0.7
+anm_idle_moving_g           = abakan_idle_moving_w_gl
+anm_idle_moving_g_aim       = abakan_idle_moving_w_gl, idle, 0.75
+anm_idle_moving_w_gl        = abakan_idle_moving_w_gl
+anm_idle_moving_w_gl_aim    = abakan_idle_moving_w_gl, idle, 0.75
+anm_idle_sprint             = abakan_idle_sprint
+anm_idle_sprint_g           = abakan_idle_sprint_w_gl
+anm_idle_sprint_w_gl        = abakan_idle_sprint_w_gl
+anm_idle_w_gl               = abakan_idle_w_gl
+anm_idle_w_gl_aim           = abakan_idle_aim_w_gl
+anm_reload                  = abakan_reload
+anm_reload_empty            = abakan_reload_empty
+anm_reload_empty_w_gl       = abakan_reload_empty_w_gl
+anm_reload_g                = abakan_reload_grenade
+anm_reload_w_gl             = abakan_reload_w_gl
+anm_shots                   = abakan_shoot
+anm_shots_g                 = abakan_shoot_grenade
+anm_shots_w_gl              = abakan_shoot_w_gl
+anm_show                    = abakan_draw
+anm_show_g                  = abakan_draw_w_gl
+anm_show_w_gl               = abakan_draw_w_gl
+
+
+aim_hud_offset_pos          = -0.08773, 0.03367, -0.045
+aim_hud_offset_pos_16x9     = -0.08773, 0.03367, -0.045
+aim_hud_offset_rot          = -0.0194, 0.009, 0
+aim_hud_offset_rot_16x9     = -0.0194, 0.009, 0
+
+lowered_hud_offset_pos			= 0.068, -0.035, -0.02
+lowered_hud_offset_pos_16x9		= 0.068, -0.035, -0.02
+lowered_hud_offset_rot			= -0.06, -0.65, 0.4
+lowered_hud_offset_rot_16x9		= -0.06, -0.65, 0.4
+
+gl_hud_offset_pos           = -0.049, 0.0175, -0.05
+gl_hud_offset_pos_16x9      = -0.049, 0.0175, -0.05
+gl_hud_offset_rot           = -0.112, 0.0048, 0
+gl_hud_offset_rot_16x9      = -0.112, 0.0048, 0
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+[wpn_abakan_addon_scope_green]
+scope_name 					= pso_green
+scope_x                     = 36		; offset in inventory icon
+scope_y                     = 1
+
+[wpn_abakan_pso]:wpn_abakan
+1icon_layer                              = pso
+1icon_layer_x                            = 35
+1icon_layer_y                            = 0
+
+inv_weight                               = 4
+
+hud                                      = wpn_abakan_pso_hud
+
+scope_status                             = 1
+scope_dynamic_zoom                       = off
+scope_texture                            = wpn_owa_crosshair
+scope_zoom_factor                                  = 40
+
+scope_zoom_factor_alt             = 0
+use_alt_aim_hud                   = true	
+
+[wpn_abakan_pso_hud]:wpn_abakan_hud
+aim_hud_offset_pos          = -0.0795, 0.057, -0.25
+aim_hud_offset_pos_16x9     = -0.0795, 0.057, -0.25
+
+		
+[wpn_abakan_pso_blue]:wpn_abakan
+1icon_layer                              = pso_blue
+1icon_layer_x                            = 35
+1icon_layer_y                            = 0
+
+inv_weight                               = 4
+
+hud                                      = wpn_abakan_pso_blue_hud
+
+scope_status                             = 1
+scope_dynamic_zoom                       = on
+scope_texture                            = wpn_owa_crosshair_blue
+scope_zoom_factor                                  = 10
+
+scope_zoom_factor_alt             = 0
+
+use_alt_aim_hud                   = true	
+
+[wpn_abakan_pso_blue_hud]:wpn_abakan_hud
+aim_hud_offset_pos          = -0.0795, 0.057, -0.25
+aim_hud_offset_pos_16x9     = -0.0795, 0.057, -0.25

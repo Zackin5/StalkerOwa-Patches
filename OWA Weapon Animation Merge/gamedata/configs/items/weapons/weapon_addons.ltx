@@ -1,0 +1,237 @@
+
+[addons_table]
+pso                             			= scope
+pso_blue                                    = scope
+pso_green                                   = scope
+acog						 				= scope
+acog_green							   		= scope
+
+[addon]:booster
+GroupControlSection	                                = spawn_group
+discovery_dependency                                =
+$spawn                                              = "devices\pda"
+kind												= w_misc
+cost                                                = 0
+description                                         = str_antirad_descr
+inv_grid_height                                     = 1
+inv_grid_width                                      = 1
+inv_grid_x                                          = 0
+inv_grid_y                                          = 0
+inv_name                                            = str_antirad
+inv_name_short                                      = str_antirad
+inv_weight                                          = 0.0
+remove_after_use                                    = false
+use_sound                                           = interface\inv_attach_addon
+visual                                              = dynamics\devices\dev_antirad\dev_antirad.ogf
+tier									 			= 3
+
+;-------------------------------------------------------------------------------------------------------
+[pso]:addon
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\scope_pso"
+cform                                              = skeleton
+class                                              = WP_SCOPE
+cost                                               = 1000
+description                                        = str_addon_scope_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+holder_fov_modifier                                = 0.75
+holder_range_modifier                              = 1.25
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 18
+inv_grid_y         = 17
+inv_name                                           = str_addon_scope
+inv_name_short                                     = str_addon_scope
+inv_weight                                         = 0.5
+scope_texture									   = wpn_owa_crosshair
+scope_zoom_factor                                  = 25
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_scope.ogf
+repair_type                                         = scope
+
+[wpn_addon_scope]:pso
+$spawn                                             = "weapons\addons\scope"
+
+[pso_blue]:addon
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\pso_blue"
+cform                                              = skeleton
+class                                              = WP_SCOPE
+cost                                               = 7500
+description                                        = str_addon_scope_long_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+holder_fov_modifier                                = 0.75
+holder_range_modifier                              = 1.25
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 18
+inv_grid_y         = 19
+inv_name                                           = str_addon_scope_long
+inv_name_short                                     = str_addon_scope_long
+inv_weight                                         = 0.5
+scope_texture									   = wpn_owa_crosshair_blue
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_scope.ogf
+repair_type                                         = scope	
+
+scope_zoom_factor                                  = 5
+scope_dynamic_zoom                  				= on     
+
+[pso_green]:addon
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\pso_green"
+cform                                              = skeleton
+class                                              = WP_SCOPE
+cost                                               = 20000
+description                                        = str_addon_scope_computerized_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+holder_fov_modifier                                = 0.75
+holder_range_modifier                              = 1.25
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 18
+inv_grid_y         = 20
+inv_name                                           = str_addon_scope_computerized
+inv_name_short                                     = str_addon_scope_computerized
+inv_weight                                         = 0.5
+scope_texture									   = wpn_owa_crosshair_green
+scope_zoom_factor                                  = 15
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_scope.ogf
+repair_type                                         = scope	
+
+scope_alive_detector 								= scope_detector
+scope_dynamic_zoom                  				= on     
+
+[acog]:addon
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\scope_acog"
+cform                                              = skeleton
+class                                              = WP_SCOPE
+cost                                               = 1200
+description                                        = str_addon_scope_susat_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+holder_fov_modifier                                = 0.75
+holder_range_modifier                              = 1.25
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 19
+inv_grid_y         = 16
+inv_name                                           = str_addon_scope_susat
+inv_name_short                                     = str_addon_scope_susat
+inv_weight                                         = 0.5
+scope_texture                                      = wpn_owa_crosshair_acog
+scope_zoom_factor                                  = 25
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_scope_susat.ogf
+repair_type                                         = scope
+
+[wpn_addon_scope_susat]:acog
+$spawn                                             = "weapons\addons\scope_susat"
+
+[acog_green]:addon
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\scope_susat"
+cform                                              = skeleton
+class                                              = WP_SCOPE
+cost                                               = 21000
+description                                        = str_addon_scope_susat_computerized_descr
+discovery_dependency                               = 
+GroupControlSection                                = spawn_group
+holder_fov_modifier                                = 0.75
+holder_range_modifier                              = 1.25
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 19
+inv_grid_y         = 18
+inv_name                                           = str_addon_scope_susat_computerized
+inv_name_short                                     = str_addon_scope_susat_computerized
+inv_weight                                         = 0.5
+scope_texture                                      = wpn_owa_crosshair_acog_green
+scope_zoom_factor                                  = 15
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_scope_susat.ogf
+repair_type                                         = scope	
+
+scope_alive_detector 								= scope_detector
+scope_dynamic_zoom                  				= on     
+
+
+[wpn_addon_silencer]:identity_immunities
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\silencer"
+bullet_hit_impulse_k                               = 0.7
+bullet_hit_power_k                                 = 0.8
+bullet_speed_k                                     = 0.8
+cam_dispersion_inc_k                               = 0.9
+cam_dispersion_k                                   = 0.8
+cform                                              = skeleton
+class                                              = WP_SILEN
+cost                                               = 1000
+description                                        = str_addon_silencer_descr
+discovery_dependency                               = 
+fire_dispersion_base_k                             = 1.25
+GroupControlSection                                = spawn_group
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 18
+inv_grid_y         = 16
+inv_name                                           = str_addon_silencer
+inv_name_short                                     = str_addon_silencer
+inv_weight                                         = 0.5
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_silencer.ogf
+
+[wpn_addon_grenade_launcher]:identity_immunities
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\grenade_launcher"
+cform                                              = skeleton
+class                                              = WP_GLAUN
+cost                                               = 3000
+description                                        = str_grenade_launcher_descr
+discovery_dependency                               = 
+fire_distance                                      = 400
+grenade_vel                                        = 73.5
+GroupControlSection                                = spawn_group
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 18
+inv_grid_y         = 14
+inv_name                                           = str_grenade_launcher
+inv_name_short                                     = str_grenade_launcher
+inv_weight                                         = 1.25
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_grenade_launcher.ogf
+
+[wpn_addon_grenade_launcher_m203]:identity_immunities
+$prefetch                                          = 32
+$spawn                                             = "weapons\addons\grenade_launcher_m203"
+cform                                              = skeleton
+class                                              = WP_GLAUN
+cost                                               = 3500
+description                                        = str_grenade_launcher_m203_descr
+discovery_dependency                               = 
+fire_distance                                      = 400
+grenade_vel                                        = 76
+GroupControlSection                                = spawn_group
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 18
+inv_grid_y         = 15
+inv_name                                           = str_grenade_launcher_m203
+inv_name_short                                     = str_grenade_launcher_m203
+inv_weight                                         = 1.25
+slot                                               = -1
+visual                                             = dynamics\weapons\wpn_upgrade\wpn_grenade_launcher_m203.ogf
+
+;;;;;;;;;;;;;Advanced scope settings;;;;;;;;;;;;;;;;
+
+[scope_detector]
+vis_frame_speed				= 15				; скорость, с которой наводится рамка на цель
+vis_frame_color				= 0.7,0.7,0.7,1.0	; цвет рамки RGBA (A) Не учитывается
+found_snd					= detectors\DA-2_beep1
+catch_snd					= detectors\DA-2_beep1

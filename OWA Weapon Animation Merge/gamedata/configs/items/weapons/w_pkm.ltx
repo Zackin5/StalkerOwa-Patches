@@ -1,0 +1,280 @@
+; ������� ���������� ���������������� (6�6)
+;-(TrickSR)-----------------------------------------
+; ������ 							7.62x54 ��
+; ����� ������ 						658 ��
+; �������							100, 150, 250 �� �����
+; ��� ��� ��������					7.5
+; ������������ ��������� ��������	3400 �
+; ����������� ��������� ��������	800 �
+; ���������� ���������				1500 �
+; ������� �������� ����				825 �/�
+; ���� ��������						650 �/�
+;---------------------------------------------------
+
+[wpn_pkm]:weapon_probability,default_weapon_params,wpn_pkm_sounds
+GroupControlSection					= spawn_group
+$spawn								= "weapons\pkm"			; option for Level Editor
+$npc								= on					; option for Level Editor
+$prefetch							= 8
+scheduled							= off					; option for ALife Simulator
+cform								= skeleton
+class								= WP_AK74
+
+description							= str_wpn_rp_descr
+
+ef_main_weapon_type					= 2
+ef_weapon_type						= 10
+
+sprint_allowed						= true
+
+kind                                     = w_rifle
+repair_type                              = weapon
+weapon_class                             = assault_rifle
+tier									 = 4
+
+;-------------------------------------------------------------------------------
+inv_name							= str_wpn_rp
+inv_name_short						= str_wpn_rp
+
+inv_grid_width     = 6
+inv_grid_height    = 2
+inv_grid_x         = 0
+inv_grid_y         = 22
+
+upgr_icon_x			= 8
+upgr_icon_y			= 593
+upgr_icon_width		= 294
+upgr_icon_height   	= 83
+
+kill_msg_x							= 80
+kill_msg_y							= 59
+kill_msg_width						= 87
+kill_msg_height						= 24
+
+;-------------------------------------------------------------------------------
+cost								= 20000
+inv_weight							= 7.5
+hud									= wpn_pkm_hud
+visual								= dynamics\weapons\wpn_pkm\wpn_pkm.ogf
+
+        upgrades                    = up_gr_firstab_pkm, up_gr_seconab_pkm, up_gr_thirdab_pkm, up_gr_fourtab_pkm, up_gr_fifthab_pkm
+        installed_upgrades          =
+        upgrade_scheme              = upgrade_scheme_pkm
+
+ph_mass								= 8
+;-------------------------------------------------------------------------------
+ammo_class							= ammo_pkm_100
+
+startup_ammo						= 100
+ammo_current						= 600
+ammo_elapsed						= 100
+ammo_limit							= 700
+ammo_mag_size						= 100
+
+fire_modes							= 15, 30, -1
+
+grenade_class						= ammo_m209
+
+launch_speed						= 0
+hand_dependence						= 1
+single_handed						= 0
+
+;-TTX---------------------------------------------------------------------------
+hit_power              = 0.5, 0.5, 0.5, 0.5
+hit_impulse            = 120
+hit_type							= fire_wound
+fire_distance						= 3400
+bullet_speed						= 825					; ��������� �������� ����
+rpm									= 650
+rpm_empty_click	= 200
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 5.0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.6
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.1
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.002
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.03
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= 0.0005
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= 0.0006
+
+;-DOF---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 1.7
+
+fire_dispersion_base    = 0.37        ;���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+control_inertion_factor = 3.0f ; 2.2f
+crosshair_inertion		= 7.70
+
+;������
+cam_return				= 0
+cam_relax_speed         = 15               ;�������� �������� � �������� ���������
+cam_relax_speed_ai      = 360                ;�������� �������� � �������� ��������� � ��
+cam_dispersion          = 0.33                ;���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc      = 0.23                ;���������e cam_dispersion � ������ ���������
+cam_dispersion_frac     = 1.0                ;����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle           = 10.0                ;������������ ���� ������
+cam_max_angle_horz      = 50.0                ;(degree) maximum shot horizontal degree
+cam_step_angle_horz     = 1.65                    ;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base           = 1.0
+PDM_disp_vel_factor     = 3.0
+PDM_disp_accel_factor   = 3.0
+PDM_disp_crouch         = 1.0
+PDM_disp_crouch_no_acc  = 1.0
+
+fire_dispersion_condition_factor = 15        ;���������� ��������� � ��������� ��� ������������ ������
+
+;- for AI ----------------------------------------------------------------------
+min_radius							= 30
+max_radius							= 90
+
+holder_range_modifier				= 1.0					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.0					; �� ������� ��� ������������� eye_fov
+
+hit_probability_gd_novice			= 0.45
+hit_probability_gd_stalker			= 0.55
+hit_probability_gd_veteran			= 0.65
+hit_probability_gd_master			= 0.75
+
+;-------------------------------------------------------------------------------
+slot								= 2						; // secondary
+animation_slot						= 2						; type of the animation that will be used
+
+position							= -0.027, -0.097, 0.042
+orientation							= 0, -2, 0
+
+fire_point							= 0.0, 0.158, 0.845	;0.000000,0.137000,0.649000
+fire_point2							= 0.0, 0.097, 0.722
+
+flame_particles						= weapons\generic_weapon05
+smoke_particles						= weapons\generic_shoot_00
+grenade_flame_particles				= weapons\generic_weapon01
+
+shell_point							= -0.020000,0.167000,0.082000
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\762x54l
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+
+strap_position						= -0.26,-0.11,0.25		; position (offset) and orientation of the weapon when it is strapped
+strap_orientation					= -15,-9,110			; (3rd person view in degrees)
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;-addons------------------------------------------------------------------------
+scope_status						= 0
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true					; (on,off)zoom mode (right mouse button)
+zoom_rotate_time					= 0.25
+scope_zoom_factor = 0 
+
+silencer_hit_power					= 0.0, 0.0, 0.0, 0.0
+silencer_hit_impulse				= 1
+silencer_fire_distance				= 1
+silencer_bullet_speed				= 1
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+
+[wpn_pkm_hud]:hud_base
+zoom_hide_crosshair        	= true
+attach_place_idx        	= 0
+item_visual                 = anomaly_weapons\wpn_pkm\wpn_pkm_hud.ogf
+
+hands_position              = -0.057, -0.16, -0.08
+hands_position_16x9         = -0.057, -0.16, -0.08
+hands_orientation           = 0.5, 0, 0
+hands_orientation_16x9      = 0.5, 0, 0
+
+item_position               = 0, 0, 0
+item_orientation            = 0, 0, 0
+
+shell_bone                  = gilza
+shell_dir                   = 0, 1, 0
+shell_point                 = 0, 0, 0
+
+fire_bone                   = muzzle
+fire_bone2                  = wpn_body
+fire_point                  = 0.004, -0.012, 0
+fire_point2                 = 0, 0, 0
+
+anm_hide                    = pkm_holster
+anm_idle                    = pkm_idle
+anm_idle_aim                = pkm_idle_aim
+anm_idle_aim_moving         = pkm_idle_moving, idle, 0.7
+anm_idle_aim_moving_crouch  = pkm_idle_crouch
+anm_idle_moving             = pkm_idle_moving
+anm_idle_moving_crouch      = pkm_idle_crouch
+anm_idle_sprint             = pkm_idle_sprint
+anm_reload                  = pkm_reload, reload
+anm_reload_empty            = pkm_reload, reload
+anm_reload_misfire          = pkm_misfire, misfire
+anm_shots                   = pkm_shoot, shoot
+anm_show                    = pkm_draw
+
+aim_hud_offset_pos          = -0.0974, 0.0279, 0.0
+aim_hud_offset_pos_16x9     = -0.0974, 0.0279, 0.0
+aim_hud_offset_rot          = 0.0043, 0.0088, -0.003
+aim_hud_offset_rot_16x9     = 0.0043, 0.0088, -0.003
+
+        lowered_hud_offset_pos			= 0.08, -0.03, -0.02
+        lowered_hud_offset_pos_16x9		= 0.08, -0.03, -0.02
+        lowered_hud_offset_rot			= -0.09, -0.65, 0.4
+        lowered_hud_offset_rot_16x9		= -0.09, -0.65, 0.4
+
+lean_hud_offset_pos        = 0,0,0
+lean_hud_offset_rot        = 0,0,0
+
+;-----------------------------------------------------------------------------
+; ����������
+;-----------------------------------------------------------------------------
+[wpn_pkm_zulus]:wpn_pkm
+$spawn			= "weapons\uniq\wpn_pkm_zulus"
+description		= str_wpn_pkm_tank_descr
+
+inv_name		= str_wpn_pkm_tank
+
+cost			= 25000
+
+ammo_mag_size		= 1000
+ammo_current		= 0
+ammo_elapsed		= 0
+
+condition_shot_dec		= 0.00035
+condition_queue_shot_dec	= 0.0004				; ���������� ����������� ��� �������� ��������
+
+visual                  = dynamics\weapons\wpn_pkm\wpn_pkm_zulus.ogf
+
+upgr_icon_x			= 8
+upgr_icon_y			= 593
+upgr_icon_width		= 294
+upgr_icon_height   	= 83
+
+hud = wpn_pkm_tank_hud
+snd_reload              = weapons\pkm\pkm_reload_2, 0.7
+[wpn_pkm_tank_hud]:wpn_pkm_hud
+item_visual                	= dynamics\weapons\wpn_pkm\wpn_pkm_zulus_hud
+anm_reload              	= pkm_reload_2, reload_2

@@ -1,0 +1,273 @@
+; �������� �������������-���������� "Gauss"
+;-(TrickSR)-----------------------------------------
+; ������ 							<�����������>
+; ����� ������ 						<�����������>
+; �������							<�����������>
+; ��� ��� ��������					<�����������>
+; ���������� ������					<�����������>
+; ����������� ��������� ��������	<�����������>
+; ���������� ���������				<�����������>
+; ������� �������� ����				<�����������>
+; ���� ��������						<�����������>
+;---------------------------------------------------
+
+[wpn_gauss]:weapon_probability,default_weapon_params,wpn_gauss_sounds
+GroupControlSection					= spawn_group
+discovery_dependency 				=
+$spawn								= "weapons\gauss"	; option for Level Editor
+$npc				 				= on				; option for Level Editor
+$prefetch 		 					= 8
+scheduled							= off	; option for ALife Simulator
+cform								= skeleton
+class								= WP_SVD
+description							= str_wpn_gauss_descr
+
+ef_main_weapon_type					= 3
+ef_weapon_type						= 11
+
+sprint_allowed 						= true
+
+kind                                     = w_sniper
+repair_type                              = weapon
+tier									 = 5
+
+;-------------------------------------------------------------------------------
+inv_name							= st_wpn_gauss
+inv_name_short						= st_wpn_gauss
+
+inv_grid_width     = 5
+inv_grid_height    = 2
+inv_grid_x         = 9
+inv_grid_y         = 26
+
+upgr_icon_x			= 298
+upgr_icon_y			= 939
+upgr_icon_width		= 297
+upgr_icon_height   	= 81
+
+kill_msg_x							= 166
+kill_msg_y							= 59
+kill_msg_width						= 82
+kill_msg_height						= 23
+
+;-------------------------------------------------------------------------------
+cost								= 25000
+weapon_class						= sniper_rifle
+inv_weight							= 5.5
+hud									= wpn_gauss_hud
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss.ogf
+
+		upgrades                    = up_gr_firstab_gauss, up_gr_seconab_gauss
+		upgrade_scheme              = upgrade_scheme_gauss
+		installed_upgrades          =
+
+ph_mass			 					= 6
+
+;-------------------------------------------------------------------------------
+ammo_class							= ammo_gauss
+
+startup_ammo						= 90
+ammo_current						= 60
+ammo_elapsed						= 10
+ammo_limit							= 70
+ammo_mag_size						= 10
+
+hand_dependence						= 1
+single_handed						= 0
+
+;-TTX---------------------------------------------------------------------------
+hit_power           		= 0.75, 0.75, 0.75, 0.4
+hit_impulse		 			= 150
+hit_type 					= fire_wound
+fire_distance						= 124000
+bullet_speed		 				= 16500					; ��������� �������� ����
+rpm									= 30
+rpm_empty_click						= 200
+
+use_aim_bullet						= true					; �������������� �� ������ ������ ����
+time_to_aim							= 1.0
+
+misfire_probability        = 0.005 ;����������� ������ ��� ������������ ������  !!!old - now not working
+;������������, ��� ������� ���������� ���� ������
+misfire_start_condition		= 0.2
+;����������� ��� ������� ���� ������ ���������� �����������
+misfire_end_condition		= 0.01
+;���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_start_prob	     	= 0.002
+;���� ������ ��� ����������� ������ ��� misfireEndCondition
+misfire_end_prob	     	= 0.075
+;���������� ����������� ��� ��������� ��������
+condition_shot_dec      	= -0.1
+;���������� ����������� ��� �������� ��������
+condition_queue_shot_dec	= -0.1
+;-DOF---------------------------------------------------------------------------
+;zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 1.7
+
+;-���������---------------------------------------------------------------------
+fire_dispersion_base				= 0.001					; ���� (� ��������) ������� ��������� ������ (������ �������� � ������)
+fire_dispersion_condition_factor	= 5						; ���������� ��������� � ��������� ��� ������������ ������
+control_inertion_factor				= 1.4f
+crosshair_inertion 					= 5
+
+;-������------------------------------------------------------------------------
+cam_return 							= 1
+cam_relax_speed						= 3						; �������� �������� � �������� ���������
+cam_relax_speed_ai					= 360					; �������� �������� � �������� ���������
+cam_dispersion						= 0.01					; ���������� ���� (� ��������) � ������ ���������
+cam_dispersion_inc					= 0.01					; ���������e cam_dispersion � ������ ���������
+cam_dispersion_frac					= 1.0					; ����� ����� ���������� �� cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 0.01					; ������������ ���� ������
+cam_max_angle_horz					= 0.01					; (degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.01					; (degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 3						; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.01
+zoom_cam_dispersion_inc				= 0.01
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 0.01
+zoom_cam_max_angle_horz				= 0.01
+zoom_cam_step_angle_horz			= 0.01
+
+PDM_disp_base 						= 1.0
+PDM_disp_vel_factor 				= 1.5
+PDM_disp_accel_factor 				= 1.5
+PDM_disp_crouch	 					= 0.8
+PDM_disp_crouch_no_acc 				= 0.6
+
+;- for AI ----------------------------------------------------------------------
+min_radius							= 30
+max_radius							= 200
+
+holder_range_modifier				= 2.00					; �� ������� ��� ������������� eye_range
+holder_fov_modifier					= 1.00					; �� ������� ��� ������������� eye_fov
+
+hit_probability_gd_novice			= 0.55
+hit_probability_gd_stalker			= 0.65
+hit_probability_gd_veteran			= 0.75
+hit_probability_gd_master			= 0.85
+
+;-------------------------------------------------------------------------------
+slot								= 2						; // secondary
+animation_slot						= 2						; type of the animation that will be used
+
+position							= -0.026, -0.070, 0.0
+orientation							= 0, 0, 0
+
+fire_point							= 0.00,0.12,0.69
+fire_point2							= 0.00,0.12,0.69
+
+flame_particles						= weapons\generic_weapon_gauss
+smoke_particles	 					= weapons\generic_weapon07
+
+shell_point		 					= 0.0, 0.129, 0.192
+shell_dir		 					= 0.0, 0.0, 0.4
+shell_particles	 					= weapons\generic_shells
+
+;-STRAP PARAMETERS--------------------------------------------------------------
+;�� ����� (��������)
+strap_position 						= -0.26,-0.11,0.15		; position (offset) and orientation of the weapon when it is strapped
+strap_orientation					= -15,-9,110			; (3rd person view in degrees)
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+light_disabled						= false
+light_color		 					= 1.3,1.5,2
+light_range		 					= 4.0
+light_var_color		 				= 0.05
+light_var_range		 				= 0.5
+light_time 		 					= 0.5
+
+;-addons------------------------------------------------------------------------
+scope_status						= 1
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true					; (on,off)zoom mode (right mouse button)
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 60					; ������ 8�
+
+scope_texture						= wpn_owa_crosshair_gauss
+scope_name 							= pso
+scope_x 							= 60
+scope_y 							= -2
+
+[wpn_gauss_hud]:hud_base
+zoom_hide_crosshair		= true
+attach_place_idx		= 0
+item_visual                 = anomaly_weapons\wpn_gauss\wpn_gauss_hud.ogf
+
+
+hands_position              = 0.09, -0.03, -0.03
+hands_position_16x9         = 0.09, -0.03, -0.03
+hands_orientation           = 0.5, 0.5, -2
+hands_orientation_16x9      = 0.5, 0.5, -2
+
+aim_hud_offset_pos          = -0.091, 0.0, -0.1
+aim_hud_offset_pos_16x9     = -0.091, 0.0, -0.1
+aim_hud_offset_rot          = 0, 0.014, 0
+aim_hud_offset_rot_16x9     = 0, 0.014, 0
+
+lowered_hud_offset_pos			= 0.072, -0.045, -0.02
+lowered_hud_offset_pos_16x9		= 0.072, -0.045, -0.02
+lowered_hud_offset_rot			= -0.1, -0.66, 0.4
+lowered_hud_offset_rot_16x9		= -0.1, -0.66, 0.4
+
+item_position               = 0, 0, 0
+item_orientation            = 0, 0, 0
+
+shell_bone                  = wpn_body
+shell_dir                   = 0, 1, 0
+shell_point                 = 0, 0, 0
+
+fire_bone                   = muzzle
+fire_point                  = 0, 0, 0
+
+gl_hud_offset_pos		= 0,0,0
+gl_hud_offset_rot		= 0,0,0
+
+lean_hud_offset_pos		= 0,0,0
+lean_hud_offset_rot		= 0,0,0
+
+anm_bore                    = gauss_idle_bore
+anm_hide                    = gauss_holster
+anm_idle                    = gauss_idle
+anm_idle_aim                = gauss_idle_aim
+anm_idle_aim_moving         = gauss_idle_moving, idle, 0.75
+anm_idle_aim_moving_crouch  = gauss_idle_moving, idle, 0.7
+anm_idle_moving             = gauss_idle_moving
+anm_idle_sprint             = gauss_idle_sprint
+anm_reload					= gauss_reload_not_empty, gauss_reload
+anm_reload_empty			= gauss_reload
+anm_shots                   = gauss_shoot
+anm_show                    = gauss_draw
+;-----------------------------------------------------------------------------
+; ����������
+;-----------------------------------------------------------------------------
+[pri_a17_gauss_rifle]:wpn_gauss								; Gauss UMIROTVORITEL
+$spawn								= "weapons\uniq\pri_a17_gauss_rifle"
+quest_item 							= true
+story_id							= pri_a17_gauss_rifle
+hud 								= wpn_gauss_hud
+inv_name							= str_wpn_umirotvoritel
+description							= str_wpn_umirotvoritel_descr
+
+upgr_icon_x							= 298
+upgr_icon_y							= 939
+upgr_icon_width						= 297
+upgr_icon_height 					= 81
+
+fire_distance						= 5000
+bullet_speed		 				= 3300					; ��������� �������� ����
+
+ammo_class							= ammo_gauss
+
+misfire_start_condition				= 0.6					; ������������, ��� ������� ���������� ���� ������
+misfire_end_condition				= 0.3					; ����������� ��� ������� ���� ������ ���������� �����������
+misfire_start_prob	 				= 1						; ���� ������ ��� ����������� ������ ��� misfireStartCondition
+misfire_end_prob	 				= 1						; ���� ������ ��� ����������� ������ ��� misfireEndCondition
+condition_shot_dec					= 0.00001				; ���������� ����������� ��� ��������� ��������
+condition_queue_shot_dec			= 0.00002				; ���������� ����������� ��� �������� ��������
+
+scope_status						= 0
