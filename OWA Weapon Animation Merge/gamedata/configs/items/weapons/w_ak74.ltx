@@ -313,24 +313,25 @@ scope_name                               = pso_green
 scope_x                     = 45		; offset in inventory icon
 scope_y                     = -3
 
-[wpn_ak74_nato]:wpn_ak74
-		parent_section						= wpn_ak74_nato
-		visual                                   = dynamics\weapons\wpn_ak101\wpn_ak101.ogf
-		hud                                      = wpn_ak74_nato_hud
-		
-		scopes_sect                              = scope_ak74_nato_computerized
-		scopes                                   = pso, pso_blue
-		
-		inv_name                                 = str_wpn_ak74_nato
-		inv_name_short                           = str_wpn_ak74_nato
-		description                              = str_wpn_ak74_nato_descr
-		
-		inv_grid_width     = 5
-		inv_grid_height    = 2
-		inv_grid_x         = 5
-		inv_grid_y         = 24
+[wpn_ak74_nato]:wpn_ak74,wpn_ak101_sounds
+parent_section						= wpn_ak74_nato
+visual                                   = dynamics\weapons\wpn_ak101\wpn_ak101.ogf
+hud                                      = wpn_ak74_nato_hud
 
-		ammo_class						= ammo_5.56x45_ss190, ammo_5.56x45_ap
+scopes_sect                              = scope_ak74_nato_computerized
+;scopes                                   = pso, pso_blue
+scopes                                   = acog
+
+inv_name                                 = str_wpn_ak74_nato
+inv_name_short                           = str_wpn_ak74_nato
+description                              = str_wpn_ak74_nato_descr
+
+inv_grid_width     = 5
+inv_grid_height    = 2
+inv_grid_x         = 5
+inv_grid_y         = 24
+
+ammo_class						= ammo_5.56x45_ss190, ammo_5.56x45_ap
 
 
 [wpn_ak74_nato_hud]:hud_base
